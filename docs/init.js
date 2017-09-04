@@ -1,4 +1,4 @@
-/* update 3 Sep 2017 */
+/* update 4 Sep 2017 */
 var xmlHttp;
 var sketchCode;
 var touchFlag = true;
@@ -8,6 +8,7 @@ function initP5sketch(p5path){
   if (get["p5"]) {
     p5path = get["p5"];
   }
+  p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
   document.getElementById("touchhelp").style.display = "none";
 }

@@ -6,7 +6,7 @@ var maxSpeed = 5;
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  select("#p5output").html("- Please move your mouse or finger.");
+  select("#p5output").html("Please move your mouse or finger.");
   
   colorMode(HSB, 100);
   rectMode(CENTER);
