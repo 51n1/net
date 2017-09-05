@@ -10,9 +10,9 @@ function setup() {
   
   colorMode(HSB, 100);
   rectMode(CENTER);
-  background(90);
+  background(99);
   frameRate(15);
-  select("body").style("background-color", color(90));
+  select("body").style("background-color", color(99));
   
   x = width / 2;
   y = height / 2;
