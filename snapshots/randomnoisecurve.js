@@ -10,12 +10,12 @@ function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
   select("#p5output").html("Comparison of Randomness by Line Drawings");
-  select("body").style("background-color", color(200));
+  select("body").style("background-color", color(255));
   
   imgsize = width*0.33;
   noiseline = new NoiseLine(imgsize, 20);
   randomline = new RandomLine(imgsize, 20);
-  background(200);
+  background(255);
 }
 
 function draw() {
