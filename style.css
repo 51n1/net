@@ -32,7 +32,7 @@ a:hover {
 }
 #content {
   overflow: hidden;
-  margin-left: 240px;
+  margin-left: 245px;
 }
 @media screen and (max-device-width: 480px) {
   h1,h2,p,pre {
