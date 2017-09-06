@@ -11,6 +11,11 @@
       pre#p5code { font-family: Consolas, 'Courier New', Courier, Monaco, monospace; }
       .codetext { color: white; background-color: rgba(83, 83, 83, 0.6); }
       span#touchhelp { display: none; }
+      p#controls {
+        border-radius: 10px; /* CSS3 */
+        -webkit-border-radius: 10px; /* Safari,Google Chrome用 */
+        -moz-border-radius: 10px; /* Firefox用 */
+      }
     </style>
   </head>
 <body onload="initP5sketch('rotationofcircle')">
@@ -34,7 +39,7 @@
   <h2>MY CONTACT</h2>
   <p><i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/t51n1">@t51n1</a></p>
   
-  <p><i class="fa fa-cog" aria-hidden="true"></i> Tools | <i class="fa fa-info" aria-hidden="true"></i> Info</p>
+  <p id="controls"><i class="fa fa-cog" aria-hidden="true"></i> Tools | <i class="fa fa-info" aria-hidden="true"></i> Info</p>
   <p></p>
 </div>
 
