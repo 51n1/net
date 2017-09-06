@@ -67,7 +67,7 @@ p#controls {
     font-size: 100%;
   }
   #sidebar {
-    position: fixed;
+    position: static;
     float: none;
     width: 100%;
   }
