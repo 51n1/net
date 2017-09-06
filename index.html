@@ -13,10 +13,10 @@
       span#touchhelp { display: none; }
       p#controls {
         padding: 0 5px;
-        border: 1px solid #333;
-        border-radius: 10px; /* CSS3 */
-        -webkit-border-radius: 10px; /* Safari,Google Chrome用 */
-        -moz-border-radius: 10px; /* Firefox用 */
+        border: 1px solid #666;
+        border-radius: 5px; /* CSS3 */
+        -webkit-border-radius: 5px; /* Safari,Google Chrome用 */
+        -moz-border-radius: 5px; /* Firefox用 */
       }
     </style>
   </head>
@@ -34,7 +34,7 @@
   <h2>SKETCH SETTING</h2>
   <p>
     TEXT FROM CODE : <span id="p5output"></span><br>
-    TOUCH MODE <a onclick="showHelp()" title="Help Tip">(?)</a> : <a onclick="touchOnOff(this)">ON ENABLED</a><br>
+    TOUCH MODE <a onclick="showHelp()" title="Help Tip"><i class="fa fa-question" aria-hidden="true"></i></a> : <a onclick="touchOnOff(this)">ON ENABLED</a><br>
     <span id="touchhelp" style="color:#666">If you touch a sketch by finger, please keep &quot;ON ENABLED&quot;. If you want to scroll down this page, click the above link and be &quot;ON DISABLED&quot;. For smartphone like iPhone or tablet devices.<br></span>
     SOURCE CODE <b>(?)</b> : <b>DISPLAYED</b>
   </p>
