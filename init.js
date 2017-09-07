@@ -19,7 +19,9 @@ $("#controls>a:eq(2)").on('click', function(){
   showCode(this);
 });
 $("#controls>a:eq(3)").on('click', function(){
-  saveCanvas('sketch','png');
+  var now = new Date();
+  var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
+  saveCanvas('sketch_'+now_str,'png');
 });
 $("#controls>a:eq(4)").on('click', function(){
   showElement('sketchlist');
