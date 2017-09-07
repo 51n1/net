@@ -3,6 +3,10 @@ var xmlHttp;
 var sketchCode;
 var codeFlag = false;
 
+$(document).ready(function(){
+  alert("jQueryファイルの読み込み完了です。");
+});
+
 function initP5sketch(p5path){
   var get = GetQueryString();
   if (get["p5"]) {
