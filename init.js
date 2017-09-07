@@ -5,8 +5,8 @@ var codeFlag = false;
 var defaultsketch = "rotationofcircle";
 
 $(document).ready(function(){
-  document.getElementById("infopanel").style.display = "none";
-  document.getElementById("sketchlist").style.display = "none";
+  //document.getElementById("infopanel").style.display = "none";
+  //document.getElementById("sketchlist").style.display = "none";
 });
 
 $(window).load(function(){
@@ -76,10 +76,10 @@ function showCode(obj) {
   codeFlag = !codeFlag;
   if(codeFlag) {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
-    document.getElementById("p5code").style.display = "block";
+    document.getElementById("p5content").style.display = "block";
   } else {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
-    document.getElementById("p5code").style.display = "none";
+    document.getElementById("p5content").style.display = "none";
   }
 }
 
