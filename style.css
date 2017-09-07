@@ -64,7 +64,7 @@ a:hover {
   -moz-border-radius: 5px; /* Firefox */
 }
 #controls>a:hover {
-  background-color: rgba(83, 83, 83, 0.6);
+  /*background-color: rgba(83, 83, 83, 0.6);*/
 }
 #sketchlist * {
   text-align: right;
