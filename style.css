@@ -50,9 +50,9 @@ a:hover {
   color: white;
   background-color: rgba(83, 83, 83, 0.6);
 }
-#touchhelp {
-  /* display: none;
-  color:#666; */
+#p5output {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 #controls {
   margin: 5px 0 10px;
@@ -64,6 +64,7 @@ a:hover {
   -moz-border-radius: 5px; /* Firefox */
 }
 #controls>a:hover {
+  color: #666;
   /*background-color: rgba(83, 83, 83, 0.6);*/
 }
 #sketchlist * {
