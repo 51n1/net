@@ -9,9 +9,7 @@ $(document).ready(function(){
   //document.getElementById("sketchlist").style.display = "none";
 });
 
-$(window).load(function(){
-  initP5sketch(defaultsketch);
-});
+
 
 function initP5sketch(p5path){
   var get = GetQueryString();
