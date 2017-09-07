@@ -90,19 +90,19 @@ function showCode(obj) {
   codeFlag = !codeFlag;
   if(codeFlag) {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
-    $("#p5content").style.display = "block";
+    $("#p5content").css("display", "block");
   } else {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
-    $("#p5content").style.display = "none";
+    $("#p5content").css("display", "none");
   }
 }
 
 function showElement(id) {
-  if ($(id).style.display == "block") {
-    $(id).style.display = "none";
+  if ($(id).css("display") == "block") {
+    $(id).css("display", "none");
   } else {
-    $("#infopanel").style.display = "none";
-    $("#sketchlist").style.display = "none";
-    $(id).style.display = "block";
+    $("#infopanel").css("display", "none");
+    $("#sketchlist").css("display", "none");
+    $(id).css("display", "block");
   }
 }
