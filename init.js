@@ -13,7 +13,7 @@ $(window).on('load', function(){
   initP5sketch(defaultsketch);
 });
 $("#controls>a:eq(1)").on('click', function(){
-  showElement('infopanel');
+  showElement('#infopanel');
 });
 $("#controls>a:eq(2)").on('click', function(){
   showCode(this);
@@ -24,7 +24,7 @@ $("#controls>a:eq(3)").on('click', function(){
   saveCanvas('sketch_'+now_str,'png');
 });
 $("#controls>a:eq(4)").on('click', function(){
-  showElement('sketchlist');
+  showElement('#sketchlist');
 });
 
 function initP5sketch(p5path){
@@ -54,7 +54,7 @@ function loadP5sketch(p5path) {
 function checkStatus(){
   if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
     sketchCode = xmlHttp.responseText;
-    document.getElementById("p5code").innerHTML = "<span class='codetext'>" + sketchCode + "</span>";
+    $("#p5code").innerHTML = "<span class='codetext'>" + sketchCode + "</span>";
     if (sketchCode.indexOf('new p5()') === -1) {
       sketchCode += '\nnew p5();';
     }
@@ -90,19 +90,19 @@ function showCode(obj) {
   codeFlag = !codeFlag;
   if(codeFlag) {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
-    document.getElementById("p5content").style.display = "block";
+    $("#p5content").style.display = "block";
   } else {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
-    document.getElementById("p5content").style.display = "none";
+    $("#p5content").style.display = "none";
   }
 }
 
 function showElement(id) {
-  if (document.getElementById(id).style.display == "block") {
-    document.getElementById(id).style.display = "none";
+  if ($(id).style.display == "block") {
+    $(id).style.display = "none";
   } else {
-    document.getElementById("infopanel").style.display = "none";
-    document.getElementById("sketchlist").style.display = "none";
-    document.getElementById(id).style.display = "block";
+    $("#infopanel").style.display = "none";
+    $("#sketchlist").style.display = "none";
+    $(id).style.display = "block";
   }
 }
