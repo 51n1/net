@@ -4,14 +4,14 @@ var sketchCode;
 var codeFlag = false;
 var defaultsketch = "rotationofcircle";
 
-$(document).ready(function(){
+//$(document).ready(function(){
   //document.getElementById("infopanel").style.display = "none";
   //document.getElementById("sketchlist").style.display = "none";
-});
+//});
 
-  $(window).load({name:defaultsketch}, function(obj){
-    initP5sketch(obj.data.name);
-  });
+$(window).on('load', function(){
+  initP5sketch(defaultsketch);
+});
 
 function initP5sketch(p5path){
   var get = GetQueryString();
