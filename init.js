@@ -2,20 +2,22 @@
 var xmlHttp;
 var sketchCode;
 var codeFlag = false;
+var defaultsketch = "rotationofcircle";
 
 $(document).ready(function(){
-  alert("jQueryファイルの読み込み完了です。");
+  document.getElementById("infopanel").style.display = "none";
+  document.getElementById("sketchlist").style.display = "none";
+});
+
+$(window).load(function(){
+  initP5sketch(defaultsketch);
 });
 
 function initP5sketch(p5path){
   var get = GetQueryString();
-  if (get["p5"]) {
-    p5path = get["p5"];
-  }
+  if (get["p5"]) p5path = get["p5"];
   p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
-  document.getElementById("infopanel").style.display = "none";
-  document.getElementById("sketchlist").style.display = "none";
 }
 
 function loadP5sketch(p5path) {
