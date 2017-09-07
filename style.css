@@ -8,7 +8,7 @@ body {
   color: #333;
   -webkit-text-size-adjust: 100%;
 }
-h1, h2, p, pre {
+h1, h2, p, pre, #controls {
   margin: 5px 5px 10px ;
   font: 11px/1.5 verdana, sans-serif;
 }
@@ -16,7 +16,7 @@ h1, h2 {
   font-weight: bold;
 }
 a {
-  color: #00f;
+  color: #000;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -28,11 +28,11 @@ a:hover {
 #sidebar {
   position: fixed;
   /*float: left;*/
-  width: 240px;
+  width: 250px;
 }
 #content {
   overflow: hidden;
-  margin-left: 245px;
+  margin-left: 255px;
 }
 div#p5canvas {
   position: fixed;
@@ -44,6 +44,7 @@ div#p5canvas {
   z-index: -1;
 }
 pre#p5code {
+  display: none;
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
 }
 .codetext {
@@ -51,19 +52,23 @@ pre#p5code {
   background-color: rgba(83, 83, 83, 0.6);
 }
 span#touchhelp {
-  display: none;
-  color:#666;
+  /* display: none;
+  color:#666; */
 }
-p#controls {
+#controls {
   margin: 5px 0 10px;
   padding: 0 5px;
+  background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid #666;
   border-radius: 5px; /* CSS3 */
-  -webkit-border-radius: 5px; /* Safari,Google Chrome用 */
-  -moz-border-radius: 5px; /* Firefox用 */
+  -webkit-border-radius: 5px; /* Safari, Google Chrome */
+  -moz-border-radius: 5px; /* Firefox */
+}
+#infopanel, #sketchlist {
+  display: none;
 }
 @media screen and (max-device-width: 480px) {
-  h1,h2,p,pre {
+  h1,h2,p,pre,#controls {
     font-size: 100%;
   }
   #sidebar {
