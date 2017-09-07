@@ -12,7 +12,7 @@ var defaultsketch = "rotationofcircle";
 $(window).on('load', function(){
   initP5sketch(defaultsketch);
 });
-$("#controls>a:eq(2)").on('click', function(){
+$("#controls > a:eq(1)").on('click', function(){
   showElement('infopanel');
 });
 
