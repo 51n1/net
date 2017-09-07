@@ -16,7 +16,13 @@ $("#controls>a:eq(1)").on('click', function(){
   showElement('infopanel');
 });
 $("#controls>a:eq(2)").on('click', function(){
-   showCode(this);
+  showCode(this);
+});
+$("#controls>a:eq(3)").on('click', function(){
+  saveCanvas('sketch','png');
+});
+$("#controls>a:eq(4)").on('click', function(){
+  showElement('sketchlist');
 });
 
 function initP5sketch(p5path){
@@ -81,7 +87,7 @@ function touchMoved() {
 function showCode(obj) {
   codeFlag = !codeFlag;
   if(codeFlag) {
-    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code+";
+    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
     document.getElementById("p5content").style.display = "block";
   } else {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
