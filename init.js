@@ -1,7 +1,7 @@
-/* update 4 Sep 2017 */
+/* update 6 Sep 2017 */
 var xmlHttp;
 var sketchCode;
-var touchFlag = true;
+var codeFlag = false;
 
 function initP5sketch(p5path){
   var get = GetQueryString();
@@ -10,7 +10,8 @@ function initP5sketch(p5path){
   }
   p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
-  document.getElementById("touchhelp").style.display = "none";
+  document.getElementById("infopanel").style.display = "none";
+  document.getElementById("sketchlist").style.display = "none";
 }
 
 function loadP5sketch(p5path) {
@@ -62,19 +63,26 @@ function GetQueryString() {
 }
 
 function touchMoved() {
-  if(touchFlag) return false;
+  if(!codeFlag) return false;
 }
 
-function touchOnOff(obj) {
-  touchFlag = !touchFlag;
-  if(touchFlag) obj.innerHTML = "ON ENABLED";
-  else obj.innerHTML = "ON DISABLED";
-}
-
-function showHelp() {
-  if (document.getElementById("touchhelp").style.display == "none") {
-    document.getElementById("touchhelp").style.display = "inline";
+function showCode(obj) {
+  codeFlag = !codeFlag;
+  if(codeFlag) {
+    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
+    document.getElementById("p5code").style.display = "block";
   } else {
-    document.getElementById("touchhelp").style.display = "none";
+    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
+    document.getElementById("p5code").style.display = "none";
+  }
+}
+
+function showElement(id) {
+  if (document.getElementById(id).style.display == "block") {
+    document.getElementById(id).style.display = "none";
+  } else {
+    document.getElementById("infopanel").style.display = "none";
+    document.getElementById("sketchlist").style.display = "none";
+    document.getElementById(id).style.display = "block";
   }
 }
