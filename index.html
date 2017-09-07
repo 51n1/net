@@ -10,30 +10,37 @@
 <body onload="initP5sketch('rotationofcircle')">
 
 <div id="sidebar">
-  <p id="controls"><a href="./" title="51N1"><i class="fa fa-home" aria-hidden="true"></i> 51N1</a> | <a href=""><i class="fa fa-cog" aria-hidden="true"></i> Tools</a> | <a href=""><i class="fa fa-info" aria-hidden="true"></i> Info</a></p>
-  
-  <h1><img src="logo.png" title="51N1" /></h1>
-  <p>This Is A Sketch Made With p5.js And The Code's Here</p>
-  <h2>MY CONTACT</h2>
-  <p><i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/t51n1">@t51n1</a></p>
-  
-  <h2>SNAPSHOTS OF SKETCHES</h2>
-  <p>
-    <a href="./?p5=rotationofcircle">_rotationofcircle</a><br>
-    <a href="./?p5=twistedtube">_twistedtube</a><br>
-    <a href="./?p5=randomnoisecurve">_randomnoisecurve</a>
-  </p>
-  <h2>SKETCH SETTINGS</h2>
-  <p>
-    TEXT FROM CODE : <span id="p5output"></span><br>
-    TOUCH MODE <a onclick="showHelp()" title="Help Tip"><i class="fa fa-question" aria-hidden="true"></i></a> : <a onclick="touchOnOff(this)">ON ENABLED</a><br>
-    <span id="touchhelp">If you touch a sketch by finger, please keep &quot;ON ENABLED&quot;. If you want to scroll down this page, click the above link and be &quot;ON DISABLED&quot;. For smartphone like iPhone or tablet devices.<br></span>
-    SOURCE CODE <i class="fa fa-question" aria-hidden="true"></i> : <b>DISPLAYED</b>
-  </p>
+  <div id="controls">
+    <a href="./" title="51N1"><i class="fa fa-home" aria-hidden="true"></i> 51N1</a> | <a onclick="showElement('infopanel')"><i class="fa fa-info" aria-hidden="true"></i> Info</a> | <a onclick="showCode(this)"><i class="fa fa-code" aria-hidden="true"></i> Code</a> | <a onclick="saveCanvas('sketch','png')"><i class="fa fa-file-image-o" aria-hidden="true"></i> Save</a> | <a onclick="showElement('sketchlist')"><i class="fa fa-bars" aria-hidden="true"></i></a>
+    
+    <div id="sketchlist">
+      <h2>SNAPSHOTS OF SKETCHES</h2>
+      <p>
+        <a href="./?p5=rotationofcircle">_rotationofcircle</a><br>
+        <a href="./?p5=twistedtube">_twistedtube</a><br>
+        <a href="./?p5=randomnoisecurve">_randomnoisecurve</a>
+      </p>
+      <!-- <h2>SKETCH SETTINGS</h2>
+      <p>
+        TOUCH MODE <a onclick="showHelp()" title="Help Tip"><i class="fa fa-question" aria-hidden="true"></i></a> : <a onclick="touchOnOff(this)">ON ENABLED</a><br>
+        <span id="touchhelp">If you touch a sketch by finger, please keep &quot;ON ENABLED&quot;. If you want to scroll down this page, click the above link and be &quot;ON DISABLED&quot;. For smartphone like iPhone or tablet devices.<br></span>
+        SOURCE CODE <i class="fa fa-question" aria-hidden="true"></i> : <b>DISPLAYED</b>
+      </p> -->
+    </div>
+    
+    <div id="infopanel">
+      <!-- <h1><a href="./" title="51N1"><img src="logo.png" title="51N1" /></a></h1> -->
+      <p>This Is A Sketch Made With p5.js And The Code's Here</p>
+      <h2>TEXT FROM THIS SKETCH</h2>
+      <p id="p5output"></p>
+      <h2>MY CONTACT</h2>
+      <p><i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/t51n1">@t51n1</a></p>
+    </div>
+    
+  </div>
 </div>
 
 <div id="content">
-  <!-- <p id="p5output"></p> -->
   <pre id="p5code"></pre>
 </div>
 <div id="p5canvas"></div>
