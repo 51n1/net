@@ -54,7 +54,7 @@ function loadP5sketch(p5path) {
 function checkStatus(){
   if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
     sketchCode = xmlHttp.responseText;
-    $("#p5code").innerHTML = "<span class='codetext'>" + sketchCode + "</span>";
+    $("#p5code").html("<span class='codetext'>" + sketchCode + "</span>");
     if (sketchCode.indexOf('new p5()') === -1) {
       sketchCode += '\nnew p5();';
     }
