@@ -4,16 +4,19 @@ var sketchCode;
 var codeFlag = false;
 var defaultsketch = "rotationofcircle";
 
+/* Event */
 //$(document).ready(function(){
   //document.getElementById("infopanel").style.display = "none";
   //document.getElementById("sketchlist").style.display = "none";
 //});
-
 $(window).on('load', function(){
   initP5sketch(defaultsketch);
 });
-$("#controls > a:eq(1)").on('click', function(){
+$("#controls>a:eq(1)").on('click', function(){
   showElement('infopanel');
+});
+$("#controls>a:eq(2)").on('click', function(){
+   showCode(this);
 });
 
 function initP5sketch(p5path){
@@ -78,7 +81,7 @@ function touchMoved() {
 function showCode(obj) {
   codeFlag = !codeFlag;
   if(codeFlag) {
-    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
+    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code+";
     document.getElementById("p5content").style.display = "block";
   } else {
     obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
