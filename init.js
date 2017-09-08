@@ -1,4 +1,4 @@
-/* update 6 Sep 2017 */
+/* update 7 Sep 2017 */
 var xmlHttp;
 var sketchCode;
 var codeFlag = false;
@@ -82,17 +82,17 @@ function GetQueryString() {
   return result;
 }
 
-function touchMoved() {
-  if(!codeFlag) return false;
-}
+//function touchMoved() {
+  //if(!codeFlag) return false;
+//}
 
 function showCode(obj) {
   codeFlag = !codeFlag;
   if(codeFlag) {
-    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
+    //obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
     $("#p5content").css("display", "block");
   } else {
-    obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
+    //obj.innerHTML = "<i class=\"fa fa-code\" aria-hidden=\"true\"></i> Code";
     $("#p5content").css("display", "none");
   }
 }
@@ -106,3 +106,18 @@ function showElement(id) {
     $(id).css("display", "block");
   }
 }
+
+function stopDefault(event) {
+  if (event.touches[0].target.tagName.toLowerCase() == "a") {return;}
+  if (event.touches[0].target.tagName.toLowerCase() == "i") {return;}
+  if (event.touches[0].target.tagName.toLowerCase() == "span") {return;}
+  event.preventDefault();
+}
+
+document.addEventListener("touchstart", stopDefault, false);
+document.addEventListener("touchmove", stopDefault, false);
+document.addEventListener("touchend", stopDefault, false); 
+
+document.addEventListener("gesturestart", stopDefault, false);
+document.addEventListener("gesturechange", stopDefault, false);
+document.addEventListener("gestureend", stopDefault, false); 

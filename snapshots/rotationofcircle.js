@@ -26,6 +26,4 @@ function draw() {
   }
   endShape(CLOSE);
   rotation += 0.5;
-
-  //if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
 }

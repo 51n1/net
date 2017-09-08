@@ -29,7 +29,6 @@ function draw() {
   randomline.step();
   randomline.render();
   pop();
-  //if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
 }
 
 function NoiseLine(_s, _c) {
