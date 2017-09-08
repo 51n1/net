@@ -103,6 +103,7 @@ function stopDefault(event) {
   if (event.touches[0].target.tagName.toLowerCase() == "a") {return;}
   if (event.touches[0].target.tagName.toLowerCase() == "i") {return;}
   if (event.touches[0].target.tagName.toLowerCase() == "span") {return;}
+  if (event.touches[0].target.tagName.toLowerCase() == "pre") {return;}
   event.preventDefault();
 }
 
