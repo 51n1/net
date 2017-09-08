@@ -9,23 +9,15 @@ var defaultsketch = "rotationofcircle";
   //document.getElementById("infopanel").style.display = "none";
   //document.getElementById("sketchlist").style.display = "none";
 //});
-$(window).on('load', function(){
-  initP5sketch(defaultsketch);
-});
-$("#controls>a:eq(1)").on('click', function(){
-  showElement('#infopanel');
-});
-$("#controls>a:eq(2)").on('click', function(){
-  showCode(this);
-});
+$(window).on('load', function(){ initP5sketch(defaultsketch); });
+$("#controls>a:eq(1)").on('click', function(){ showElement('#infopanel'); });
+$("#controls>a:eq(2)").on('click', function(){ showCode(this); });
 $("#controls>a:eq(3)").on('click', function(){
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
 });
-$("#controls>a:eq(4)").on('click', function(){
-  showElement('#sketchlist');
-});
+$("#controls>a:eq(4)").on('click', function(){ showElement('#sketchlist'); });
 
 function initP5sketch(p5path){
   var get = GetQueryString();
