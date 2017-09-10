@@ -46,7 +46,7 @@ a {
   color: #333;
   background-color: rgba(255, 255, 255, 0.5);
 }
-#p5output {
+#p5output, #p5text {
   color: #666;
   font-weight: bold;
   text-transform: uppercase;
@@ -79,7 +79,13 @@ a {
 #sketchlist * {
   text-align: right;
 }
-#infopanel, #sketchlist, #p5content {
+#p5text {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+}
+#infopanel, #sketchlist, #p5content, #p5text {
   display: none;
 }
 @media screen and (max-device-width: 480px) {
