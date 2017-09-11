@@ -8,7 +8,7 @@ function setup() {
   var canvas = createCanvas(windowWidth, windowHeight,WEBGL);
   canvas.parent("p5canvas");
   select("#p5output").html("Drawing + Motion + 3D");
-  select("#p5text").html("Click and move on screen, then if release, drawn lines will be moving.");
+  select("#p5text").html("Click or touch and drag on screen, then if release, drawn lines will be moving. Push Enter key or touch with two fingers for reset of sketch. ");
   select("body").style("background-color", color(10));
   select("#p5output").style("color", color(200));
   select("#p5text").style("color", color(200));
