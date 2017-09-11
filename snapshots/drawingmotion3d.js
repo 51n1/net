@@ -74,16 +74,26 @@ function mouseDragged() {
     position[pointer][2] = -pointer*zdepth;
     pointer++;
   } else {
-    on = false;
+    if( on == true ) start3D();
   }
 }
 
 function mouseReleased() {
-  if( on == true ) {
-    on = false;
-    for (var i=0; i<pointer; i++){
-      position[i][2] = pointer*zdepth*0.5 - i*zdepth;
-    }
-    select("#p5text").style("display", "none");
-  }
+  if( on == true ) start3D();
 }
+
+function start3D() {
+  on = false;
+  for (var i=0; i<pointer; i++){
+    position[i][2] = pointer*zdepth*0.5 - i*zdepth;
+  }
+  select("#p5text").style("display", "none");
+}
+
+
+
+
+
+
+
+
