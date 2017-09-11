@@ -33,6 +33,7 @@ function draw() {
     //orbitControl();
     rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
+    rotateZ(frameCount*0.001);
     background(10);
     fill(255);
     beginShape();
