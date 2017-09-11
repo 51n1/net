@@ -42,7 +42,7 @@ function draw() {
       position[i][0] += random(-amount, amount);
       position[i][1] += random(-amount, amount);
       position[i][2] += random(-amount, amount);
-      besierVertex(position[i][0], position[i][1], position[i][2],position[i][0], position[i][1], position[i][2],position[i][0], position[i][1], position[i][2]);
+      bezierVertex(position[i][0], position[i][1], position[i][2],position[i][0], position[i][1], position[i][2],position[i][0], position[i][1], position[i][2]);
     }
     endShape();
   } else { // During Memory
