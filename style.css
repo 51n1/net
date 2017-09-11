@@ -21,6 +21,9 @@ a {
   font-weight: bold;
   cursor: pointer;
 }
+a:hover {
+  color: #666;
+}
 #sidebar {
   position: fixed;
   /*float: left;*/
@@ -71,9 +74,9 @@ a {
   float: right;
   border:0;
 }
-#controls > a:hover, #infopanel > p > a:hover {
+/*#controls > a:hover, #infopanel > p > a:hover {
   color: #666;
-}
+}*/
 #infopanel, #sketchlist {
   border-top:1px solid #666;
 }
