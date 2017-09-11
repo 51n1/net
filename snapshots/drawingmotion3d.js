@@ -25,7 +25,8 @@ function setup() {
   
   var fov = 60 / 180 * PI;
   var cameraZ = (height/2.0) / tan(fov/2.0);
-  perspective(60 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
+  //perspective(60 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
+  perspective(30 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
 }
 
 function draw() {
@@ -56,7 +57,7 @@ function draw() {
     }
     endShape();
   }
-  if( pointer > 0 && (touches.length > 1 || keyIsDown(ENTER)) ) {
+  if( pointer > 0 && (touches.length > 1 || keyIsDown(SPACE)) ) {
     pointer = 0;
     on = false;
   }
