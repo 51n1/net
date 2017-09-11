@@ -38,6 +38,7 @@ a {
   top:0;
   left:0;
   z-index: -1;
+  cursor: default;
 }
 #p5code {
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
