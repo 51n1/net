@@ -26,13 +26,13 @@ function setup() {
 
 function draw() {
   //translate(-width*0.5, -height*0.5, 0);
-  //camera(width*0.5, height*0.5, 0);
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
+    camera(0, 0, pointer*zdepth*2);
     orbitControl();
     rotateX(radians(map(mouseY, -width*0.5, width*0.5, 0, 360)));
-    rotateY(radians(map(mouseX, -height*0.5, height*0.5, 0, 360)));
+    //rotateY(radians(map(mouseX, -height*0.5, height*0.5, 0, 360)));
     background(10);
     fill(255);
     beginShape();
