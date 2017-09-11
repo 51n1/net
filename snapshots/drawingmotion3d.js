@@ -37,12 +37,12 @@ function draw() {
     background(10);
     fill(255);
     beginShape();
-    //vertex(position[0][0], position[0][1], position[0][2]);
+    vertex(position[0][0], position[0][1], position[0][2]);
     for(var i = 0; i < pointer; i++) {
       position[i][0] += random(-amount, amount);
       position[i][1] += random(-amount, amount);
       position[i][2] += random(-amount, amount);
-      curveVertex(position[i][0], position[i][1], position[i][2]);
+      besierVertex(position[i][0], position[i][1], position[i][2],position[i][0], position[i][1], position[i][2],position[i][0], position[i][1], position[i][2]);
     }
     endShape();
   } else { // During Memory
