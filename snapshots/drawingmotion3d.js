@@ -31,8 +31,8 @@ function draw() {
     //translate(0, 0, -pointer*zdepth*2)
     camera(0, 0, pointer*zdepth);
     orbitControl();
-    rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
-    //rotateY(radians(map(mouseX, -height*0.5, height*0.5, 0, 360)));
+    //rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
+    rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     background(10);
     fill(255);
     beginShape();
@@ -76,5 +76,10 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-  if( on == true ) on = false;
+  if( on == true ) {
+    on = false;
+    for (var i=0; i<pointer; i++){
+      position[i][2] = pointer*zdepth*0.5 - i*zdepth;
+    }
+  }
 }
