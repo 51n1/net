@@ -23,8 +23,8 @@ function setup() {
   zdepth = 1.5;
   on = false;
   
-  var fov = 60 / 180 * PI;
-  var cameraZ = (height/2.0) / tan(fov/2.0);
+  //var fov = 60 / 180 * PI;
+  //var cameraZ = (height/2.0) / tan(fov/2.0);
   //perspective(60 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
 }
 
@@ -70,8 +70,8 @@ function mouseDragged() {
   if( on == true && pointer < position.length ) {
     position[pointer][0] = mouseX - width*0.5;
     position[pointer][1] = mouseY - height*0.5;
-    //position[pointer][2] = -pointer*zdepth;
-    position[pointer][2] = 0;
+    position[pointer][2] = -pointer*zdepth;
+    //position[pointer][2] = 0;
     pointer++;
   } else {
     on = false;
