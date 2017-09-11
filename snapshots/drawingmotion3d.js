@@ -31,7 +31,7 @@ function draw() {
     //translate(0, 0, -pointer*zdepth*2)
     camera(0, 0, pointer*zdepth);
     orbitControl();
-    //rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
+    rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     background(10);
     fill(255);
