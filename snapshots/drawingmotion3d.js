@@ -8,7 +8,7 @@ function setup() {
   var canvas = createCanvas(windowWidth, windowHeight,WEBGL);
   canvas.parent("p5canvas");
   select("#p5output").html("Drawing + Motion + 3D");
-  select("#p5text").html("Click or touch and drag on screen, then if release, drawn lines will be moving. Push Enter key or touch with two fingers for reset of sketch. ");
+  select("#p5text").html("Click or touch and drag on screen, and then if release, drawn lines will start moving. If make new one, push Enter key or touch with two fingers for reset of sketch. ");
   select("body").style("background-color", color(10));
   select("#p5output").style("color", color(200));
   select("#p5text").style("color", color(200));
@@ -29,9 +29,9 @@ function draw() {
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
-    camera(0, 0, pointer*zdepth*2);
+    camera(0, 0, pointer*zdepth);
     orbitControl();
-    rotateX(radians(map(mouseY, -width*0.5, width*0.5, 0, 360)));
+    rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     //rotateY(radians(map(mouseX, -height*0.5, height*0.5, 0, 360)));
     background(10);
     fill(255);
