@@ -35,7 +35,7 @@ function draw() {
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
-    //perspective(30 / 180 * PI, width/height, 1, 10000);
+    perspective(30 / 180 * PI, width/height, 1, 10000);
     orbitControl();
     background(10);
     fill(255);
