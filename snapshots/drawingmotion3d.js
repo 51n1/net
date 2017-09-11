@@ -30,7 +30,7 @@ function setup() {
 
 function draw() {
   //translate(-width*0.5, -height*0.5, 0);
-  camera(width*0.5, height*0.5, 0);
+  //camera(width*0.5, height*0.5, 0);
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
@@ -68,8 +68,8 @@ function mousePressed() {
 
 function mouseDragged() {
   if( on == true && pointer < position.length ) {
-    position[pointer][0] = mouseX;
-    position[pointer][1] = mouseY;
+    position[pointer][0] = mouseX - width*0.5;
+    position[pointer][1] = mouseY - height*0.5;
     //position[pointer][2] = -pointer*zdepth;
     position[pointer][2] = 0;
     pointer++;
