@@ -23,7 +23,11 @@ a {
   cursor: pointer;
 }
 a:hover {
+<<<<<<< HEAD
   color: #333;
+=======
+  color: #666;
+>>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
 }
 #sidebar {
   position: fixed;
