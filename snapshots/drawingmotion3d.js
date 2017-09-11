@@ -30,7 +30,7 @@ function setup() {
 
 function draw() {
   //translate(-width*0.5, -height*0.5, 0);
-  camera(width*0.1, height*0.5, 0);
+  camera(width*0.5, height*0.5, 0);
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
