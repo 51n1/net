@@ -38,12 +38,11 @@ function draw() {
     fill(255);
     beginShape();
     //vertex(position[0][0], position[0][1], position[0][2]);
-    for(var i = 0; i < pointer-1; i++) {
+    for(var i = 0; i < pointer; i++) {
       position[i][0] += random(-amount, amount);
       position[i][1] += random(-amount, amount);
       position[i][2] += random(-amount, amount);
       vertex(position[i][0], position[i][1], position[i][2]);
-      bezierVertex(position[i][0], position[i][1], position[i][2], position[i][0], position[i][1], position[i][2], position[i+1][0], position[i+1][1], position[i+1][2]);
     }
     endShape();
   } else { // During Memory
@@ -51,7 +50,7 @@ function draw() {
     background(10);
     fill(0,255,255);
     beginShape();
-    vertex(position[0][0], position[0][1], 0);
+    //vertex(position[0][0], position[0][1], 0);
     for(var i = 0; i < pointer; i++) {
       vertex(position[i][0], position[i][1], 0);
     }
