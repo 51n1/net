@@ -33,7 +33,7 @@ function draw() {
     //orbitControl();
     rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
-    rotateZ(frameCount*0.001);
+    rotateZ(frameCount*0.01);
     background(10);
     fill(255);
     beginShape();
@@ -46,7 +46,7 @@ function draw() {
     }
     endShape();
   } else { // During Memory
-    camera(0, 0, pointer*zdepth); // Z-axis
+    camera(0, 0, pointer*zdepth*0.1); // Z-axis
     background(10);
     fill(0,255,255);
     beginShape();
