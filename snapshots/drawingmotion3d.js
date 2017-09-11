@@ -45,6 +45,7 @@ function draw() {
     }
     endShape();
   } else { // During Memory
+    translate(0, 0, -pointer*zdepth); // Z-axis
     background(10);
     fill(0,255,255);
     beginShape();
@@ -85,8 +86,7 @@ function mouseReleased() {
 function start3D() {
   on = false;
   for (var i=0; i<pointer; i++){
-    //position[i][2] = pointer*zdepth*0.5 - i*zdepth;
-    position[i][2] = - i*zdepth;
+    position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5text").style("display", "none");
 }
