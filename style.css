@@ -80,7 +80,7 @@ a {
   text-align: right;
 }
 #p5text {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 50%;
   left: 0;
@@ -103,5 +103,8 @@ a {
   }
   div#p5canvas {
     position: absolute;
+  }
+  #p5text {
+    position: static;
   }
 }
