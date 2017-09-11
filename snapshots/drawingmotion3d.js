@@ -29,12 +29,12 @@ function setup() {
 }
 
 function draw() {
-  translate(-width*0.5, -height*0.5, 0);
+  //translate(-width*0.5, -height*0.5, 0);
+  //camera(mouseX, mouseY, 0);
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
     orbitControl();
-    //camera(mouseX, mouseY, 0);
     background(10);
     fill(255);
     beginShape();
