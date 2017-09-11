@@ -5,7 +5,7 @@ var zdepth; // float
 var on; // boolean
 
 function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight,WEBGL);
+  var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
   select("#p5output").html("Drawing + Motion + 3D");
   select("#p5text").html("Click or touch and keep dragging on screen, and then if release, drawn lines will start moving. If make new one, push Enter key or touch with two fingers for reset of sketch. ");
@@ -29,11 +29,11 @@ function draw() {
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
-    //camera(0, 0, pointer*zdepth);
+    camera(0, 0, pointer*zdepth*0.1);
     //orbitControl();
     rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
-    rotateZ(frameCount*0.01);
+    rotateZ(frameCount*0.005);
     background(10);
     fill(255);
     beginShape();
