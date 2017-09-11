@@ -2,7 +2,7 @@
 var xmlHttp;
 var sketchCode;
 var codeFlag = false;
-var defaultsketch = "rotationofcircle";
+var defaultsketch = "drawingmotion3d";
 
 /* Event */
 //$(document).ready(function(){
@@ -104,7 +104,7 @@ function stopDefault(event) {
   if (event.touches[0].target.tagName.toLowerCase() == "i") {return;}
   if (event.touches[0].target.tagName.toLowerCase() == "span") {return;}
   if (event.touches[0].target.tagName.toLowerCase() == "pre") {return;}
-  if (event.touches[0].target.id == "p5text") {return;}
+  //if (event.touches[0].target.id == "p5text") {return;}
   event.preventDefault();
 }
 

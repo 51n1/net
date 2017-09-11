@@ -15,11 +15,15 @@ h1, h2, p, pre, #controls {
 h1, h2 {
   font-weight: bold;
 }
+h2 { margin-bottom: 5px; }
 a {
   color: #000;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
+}
+a:hover {
+  color: #333;
 }
 #sidebar {
   position: fixed;
@@ -38,6 +42,7 @@ a {
   top:0;
   left:0;
   z-index: -1;
+  cursor: default;
 }
 #p5code {
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
@@ -47,7 +52,6 @@ a {
   background-color: rgba(255, 255, 255, 0.5);
 }
 #p5output, #p5text {
-  color: #666;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -70,9 +74,9 @@ a {
   float: right;
   border:0;
 }
-#controls > a:hover, #infopanel > p > a:hover {
+/*#controls > a:hover, #infopanel > p > a:hover {
   color: #666;
-}
+}*/
 #infopanel, #sketchlist {
   border-top:1px solid #666;
 }
@@ -80,10 +84,12 @@ a {
   text-align: right;
 }
 #p5text {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 50%;
   left: 0;
+  margin:0;
+  text-align: center;
 }
 #infopanel, #sketchlist, #p5content, #p5text {
   display: none;
@@ -103,5 +109,8 @@ a {
   }
   div#p5canvas {
     position: absolute;
+  }
+  #p5text {
+    position: static;
   }
 }
