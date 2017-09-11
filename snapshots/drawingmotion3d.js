@@ -70,7 +70,7 @@ function mouseDragged() {
   if( on == true && pointer < position.length ) {
     position[pointer][0] = mouseX;
     position[pointer][1] = mouseY;
-    position[pointer][2] = -pointer*zdepth;
+    //position[pointer][2] = -pointer*zdepth;
     position[pointer][2] = 0;
     pointer++;
   } else {
