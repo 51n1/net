@@ -57,7 +57,7 @@ function draw() {
     }
     endShape();
   }
-  if( pointer > 0 && (touches.length > 1 || keyIsDown(SPACEBAR)) ) {
+  if( pointer > 0 && (touches.length > 1 || keyIsDown(" ")) ) {
     pointer = 0;
     on = false;
   }
