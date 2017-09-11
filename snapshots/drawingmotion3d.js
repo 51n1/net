@@ -35,6 +35,8 @@ function draw() {
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
+    var fov = 60 / 180 * PI;
+    var cameraZ = (height/2.0) / tan(fov/2.0);
     perspective(90 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
     orbitControl();
     background(10);
