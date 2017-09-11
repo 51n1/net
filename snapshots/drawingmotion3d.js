@@ -45,7 +45,7 @@ function draw() {
     }
     endShape();
   } else { // During Memory
-    camera(0, 0, -pointer*zdepth); // Z-axis
+    camera(0, 0, pointer*zdepth); // Z-axis
     background(10);
     fill(0,255,255);
     beginShape();
