@@ -23,8 +23,8 @@ function setup() {
   zdepth = 1.5;
   on = false;
   
-  var fov = 60 / 180 * PI;
-  var cameraZ = (height/2.0) / tan(fov/2.0);
+  //var fov = 60 / 180 * PI;
+  //var cameraZ = (height/2.0) / tan(fov/2.0);
   //perspective(60 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
   
 }
@@ -35,10 +35,11 @@ function draw() {
   
   if((on == false) && (pointer > 0)) { // After Memory
     //translate(0, 0, -pointer*zdepth*2)
-    var fov = 60 / 180 * PI;
-    var cameraZ = (height/2.0) / tan(fov/2.0);
-    perspective(90 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
+    //var fov = 60 / 180 * PI;
+    //var cameraZ = (height/2.0) / tan(fov/2.0);
+    //perspective(90 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
     orbitControl();
+    rotateY(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     background(10);
     fill(255);
     beginShape();
