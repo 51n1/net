@@ -8,11 +8,6 @@ var hint = "Click or touch and keep dragging on screen, and then if release, dra
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
-<<<<<<< HEAD
-=======
-  select("#p5output").html("Drawing + Motion + 3D");
-  select("#p5text").html("Click or touch and keep dragging on screen, and then if release, drawn lines will start moving. If make new one, push Enter key or touch with two fingers for reset of sketch. ");
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
   select("body").style("background-color", color(10));
   select("#p5output").html("Drawing + Motion + 3D");
   select("#p5output").style("color", color(200));
@@ -31,15 +26,8 @@ function setup() {
 }
 
 function draw() {
-<<<<<<< HEAD
   
   if((on == false) && (pointer > 0)) { // After Memory
-=======
-  //translate(-width*0.5, -height*0.5, 0);
-  
-  if((on == false) && (pointer > 0)) { // After Memory
-    //translate(0, 0, -pointer*zdepth*2)
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
     camera(0, 0, pointer*zdepth*1);
     //orbitControl();
     rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
@@ -48,10 +36,6 @@ function draw() {
     background(10);
     fill(255);
     beginShape();
-<<<<<<< HEAD
-=======
-    //vertex(position[0][0], position[0][1], position[0][2]);
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
     for(var i = 0; i < pointer; i++) {
       position[i][0] += random(-amount, amount);
       position[i][1] += random(-amount, amount);
@@ -64,10 +48,6 @@ function draw() {
     background(10);
     fill(0,255,255);
     beginShape();
-<<<<<<< HEAD
-=======
-    //vertex(position[0][0], position[0][1], 0);
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
     for(var i = 0; i < pointer; i++) {
       vertex(position[i][0], position[i][1], 0);
     }
@@ -76,10 +56,7 @@ function draw() {
   if( pointer > 0 && (touches.length > 1 || keyIsDown(ENTER)) ) {
     pointer = 0;
     on = false;
-<<<<<<< HEAD
     select("#p5text").html(hint);
-=======
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
     select("#p5text").style("display", "block");
   }
 }
@@ -103,11 +80,7 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-<<<<<<< HEAD
   if( on == true && pointer > 0 ) start3D();
-=======
-  if( on == true ) start3D();
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
 }
 
 function start3D() {
@@ -116,16 +89,4 @@ function start3D() {
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5text").style("display", "none");
-<<<<<<< HEAD
 }
-=======
-}
-
-
-
-
-
-
-
-
->>>>>>> 26342663f74d2dd9dac4850c1602b0e189d54ae7
