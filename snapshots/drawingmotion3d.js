@@ -71,7 +71,7 @@ function mouseDragged() {
   if( on == true && pointer < position.length ) {
     position[pointer][0] = mouseX - width*0.5;
     position[pointer][1] = mouseY - height*0.5;
-    position[pointer][2] = -pointer*zdepth;
+    position[pointer][2] = 0;
     pointer++;
   } else {
     if( on == true ) start3D();
@@ -85,7 +85,8 @@ function mouseReleased() {
 function start3D() {
   on = false;
   for (var i=0; i<pointer; i++){
-    position[i][2] = pointer*zdepth*0.5 - i*zdepth;
+    //position[i][2] = pointer*zdepth*0.5 - i*zdepth;
+    position[i][2] = - i*zdepth;
   }
   select("#p5text").style("display", "none");
 }
