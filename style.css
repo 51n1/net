@@ -3,7 +3,7 @@
   padding: 0;
 }
 body {
-  padding: 15px 10px;
+  padding: 10px;
   background-color: #fff;
   color: #333;
   -webkit-text-size-adjust: 100%;
@@ -28,11 +28,45 @@ a:hover {
 #sidebar {
   position: fixed;
   /*float: left;*/
-  width: 250px;
+  width: 260px;
+}
+#controls {
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 1px;
+  background-color: rgba(200, 200, 200, 0.6);
+  /*border: 1px solid #999;*/
+  border-radius: 5px; /* CSS3 */
+  -webkit-border-radius: 5px; /* Safari, Google Chrome */
+  -moz-border-radius: 5px; /* Firefox */
+}
+#controls>a {
+  display: inline-block;
+  float: left;
+  margin: 2px;
+  padding: 3px 5px;
+  background-color: rgba(240, 240, 240, 0.5);
+  /*border-right: 1px solid #666;*/
+  border: 0;
+  border-radius: 3px; /* CSS3 */
+  -webkit-border-radius: 3px; /* Safari, Google Chrome */
+  -moz-border-radius: 3px; /* Firefox */
+}
+#controls>a:nth-child(5) {
+  float: right;
+}
+#controls>a.onbutton {
+  background-color: rgba(180, 180, 180, 0.4);
+}
+#infopanel, #sketchlist {
+  /* border-top: 1px solid #666; */
+}
+#sketchlist * {
+  text-align: right;
 }
 #p5content {
   overflow: hidden;
-  margin-left: 260px;
+  margin-left: 270px;
 }
 #p5canvas {
   position: fixed;
@@ -48,37 +82,12 @@ a:hover {
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
 }
 .codetext {
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.5);
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 #p5output, #p5text {
   font-weight: bold;
   text-transform: uppercase;
-}
-#controls {
-  width: 100%;
-  margin: 5px 0 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid #666;
-  border-radius: 5px; /* CSS3 */
-  -webkit-border-radius: 5px; /* Safari, Google Chrome */
-  -moz-border-radius: 5px; /* Firefox */
-}
-#controls>a {
-  display: inline-block;
-  float: left;
-  padding:0 5px;
-  border-right: 1px solid #666;
-}
-#controls>a:nth-child(5) {
-  float: right;
-  border:0;
-}
-#infopanel, #sketchlist {
-  border-top:1px solid #666;
-}
-#sketchlist * {
-  text-align: right;
 }
 #p5text {
   position: fixed;

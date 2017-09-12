@@ -10,14 +10,21 @@ var defaultsketch = "drawingmotion3d";
   //document.getElementById("sketchlist").style.display = "none";
 //});
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
-$("#controls>a:eq(1)").on('click', function(){ showElement('#infopanel'); });
-$("#controls>a:eq(2)").on('click', function(){ showCode(this); });
+$("#controls>a:eq(1)").on('click', function(){
+  showElement('#infopanel',this);
+});
+$("#controls>a:eq(2)").on('click', function(){
+  showCode(this);
+  $(this).toggleClass("onbutton");
+});
 $("#controls>a:eq(3)").on('click', function(){
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
 });
-$("#controls>a:eq(4)").on('click', function(){ showElement('#sketchlist'); });
+$("#controls>a:eq(4)").on('click', function(){
+  showElement('#sketchlist',this);
+});
 
 function initP5sketch(p5path){
   var get = GetQueryString();
@@ -89,13 +96,17 @@ function showCode(obj) {
   }
 }
 
-function showElement(id) {
-  if ($(id).css("display") == "block") {
-    $(id).css("display", "none");
+function showElement(target,obj) {
+  if ($(target).css("display") == "block") {
+    $(target).css("display", "none");
+    $(obj).removeClass("onbutton");
   } else {
     $("#infopanel").css("display", "none");
     $("#sketchlist").css("display", "none");
-    $(id).css("display", "block");
+    $("#controls>a:eq(1)").removeClass("onbutton");
+    $("#controls>a:eq(4)").removeClass("onbutton");
+    $(target).css("display", "block");
+    $(obj).addClass("onbutton");
   }
 }
 
