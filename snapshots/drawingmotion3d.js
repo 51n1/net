@@ -3,7 +3,8 @@ var pointer; // int
 var amount; // float
 var zdepth; // float
 var on; // boolean
-var hint = "Click or touch and keep dragging on screen, and then if release, drawn lines will start moving. If make new one, push Enter key or touch with two fingers for reset of sketch. ";
+var hint1 = "Click or touch and keep dragging on screen, and then if release, drawn lines will start moving.";
+var hint2 = "You can turn a drawing object by sliding your mouse or finger. If make new one, push Enter key or touch with two fingers.";
 
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -11,7 +12,7 @@ function setup() {
   select("body").style("background-color", color(10));
   select("#p5output").html("Drawing + Motion + 3D");
   select("#p5output").style("color", color(200));
-  select("#p5text").html(hint);
+  select("#p5text").html(hint1);
   select("#p5text").style("color", color(200));
   select("#p5text").style("display", "block");
   
@@ -56,7 +57,7 @@ function draw() {
   if( pointer > 0 && (touches.length > 1 || keyIsDown(ENTER)) ) {
     pointer = 0;
     on = false;
-    select("#p5text").html(hint);
+    select("#p5text").html(hint1);
     select("#p5text").style("display", "block");
   }
 }
@@ -88,5 +89,5 @@ function start3D() {
   for (var i=0; i<pointer; i++){
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
-  select("#p5text").style("display", "none");
+  select("#p5text").html(hint2);
 }
