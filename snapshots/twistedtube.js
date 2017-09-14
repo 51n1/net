@@ -6,7 +6,8 @@ var maxSpeed = 5;
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  select("#p5output").html("Please move your mouse or finger.");
+  select("#p5title").html("Twisted Tube");
+  select("#p5help").html("Please move your mouse or finger.");
   select("body").style("background-color", color(255));
   
   background(255);
