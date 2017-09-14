@@ -1,4 +1,4 @@
-/* update 7 Sep 2017 */
+/* update 14 Sep 2017 */
 var xmlHttp;
 var sketchCode;
 var codeFlag = false;
@@ -20,7 +20,8 @@ $("#controls>a:eq(2)").on('click', function(){
 $("#controls>a:eq(3)").on('click', function(){
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
-  saveCanvas('sketch_'+now_str,'png');
+  //saveCanvas('sketch_'+now_str,'png');
+  save('sketch_'+now_str,'png');
 });
 $("#controls>a:eq(5)").on('click', function(){
   showElement('#sketchlist',this);
