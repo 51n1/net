@@ -61,6 +61,7 @@ a:hover {
 #controls>a.nohelp {
   color: #999;
   background-color: rgba(240, 240, 240, 0.5);
+  cursor: default;
 }
 #infopanel, #sketchlist {
   /* border-top: 1px solid #666; */
