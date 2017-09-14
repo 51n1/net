@@ -41,7 +41,7 @@ function initP5sketch(p5path){
   p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
   
-  if($("#p5help").html == "") $("#controls>a:eq(3)").addClass("nohelp");
+  if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
 }
 
 function loadP5sketch(p5path) {
