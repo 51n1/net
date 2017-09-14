@@ -6,7 +6,8 @@ var on; // boolean
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  select("#p5output").html("Click and move on screen, then if release, drawn lines will be moving.");
+  select("#p5title").html("Drawing + Motion + 2D");
+  select("#p5help").html("Click and move on screen, then if release, drawn lines will be moving.");
   select("body").style("background-color", color(230));
   
   position = new Array(200);
