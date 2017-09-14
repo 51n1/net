@@ -3,9 +3,14 @@ var pointer; // int
 var amount; // float
 var zdepth; // float
 var on; // boolean
-var title = "Drawing + Motion + 3D";
-var hint1 = "Keep dragging on screen, and then if release, drawn lines will start moving.";
-var hint2 = "You can turn a drawing object by sliding your mouse or finger. If make new one, push Enter key or touch with two fingers.";
+var title = "Drawing + Motion + 3D + Audio";
+var hint1 = "Keep dragging on screen, and then if release, drawn lines will start moving with sound.";
+var hint2 = "You can turn a drawing object by sliding your mouse or finger. If make new one, push spacebar key or touch with two fingers.";
+var sound, analyzer;
+
+function preload() {
+  sound = loadSound('../sounds/20170914.wav');
+}
 
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -15,19 +20,24 @@ function setup() {
   select("#p5title").style("color", color(200));
   select("#p5help").html(hint1);
   select("#p5help").style("color", color(200));
-  
+
   position = new Array(500);
   for (var i = 0; i < position.length; i++) {
     position[i] = new Array(3);
   }
   pointer = 0;
-  amount = 3.0;
+  amount = 6.0;
   zdepth = 1.5;
   on = false;
+
+  analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
+  analyzer.setInput(sound); // Patch the input to an volume analyzer
+  //sound.setVolume(0.1);
 }
 
 function draw() {
   background(10);
+
   if((on == false) && (pointer > 0)) { // After Memory
     camera(0, 0, pointer*zdepth*1);
     //orbitControl();
@@ -37,9 +47,10 @@ function draw() {
     fill(255);
     beginShape();
     for(var i = 0; i < pointer; i++) {
-      position[i][0] += random(-amount, amount);
-      position[i][1] += random(-amount, amount);
-      position[i][2] += random(-amount, amount);
+      var rms = analyzer.getLevel();
+      position[i][0] += random(-rms*amount, rms*amount);
+      position[i][1] += random(-rms*amount, rms*amount);
+      position[i][2] += random(-rms*amount, rms*amount);
       vertex(position[i][0], position[i][1], position[i][2]);
     }
     endShape();
@@ -52,16 +63,13 @@ function draw() {
     }
     endShape();
   }
-  if( pointer > 0 && (touches.length > 1 || keyIsDown(ENTER)) ) {
-    pointer = 0;
-    on = false;
-    select("#p5help").html(hint1);
-  }
 }
 
 function mousePressed() {
   if( pointer == 0 ) {
     on = true;
+  } else if( pointer > 0 && touches.length > 1 ) {
+    initSketch();
   }
 }
 
@@ -81,10 +89,28 @@ function mouseReleased() {
   if( on == true && pointer > 0 ) start3D();
 }
 
+function keyTyped() {
+  if (pointer > 0 && key === ' ') {
+    initSketch();
+  }
+  //return false;
+}
+
+function initSketch() {
+  pointer = 0;
+  on = false;
+  select("#p5help").html(hint1);
+  sound.setVolume(0);
+  sound.stop();
+}
+
 function start3D() {
   on = false;
   for (var i=0; i<pointer; i++){
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);
+  sound.play();
+  sound.loop();
+  sound.setVolume(1);
 }
