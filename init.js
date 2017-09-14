@@ -41,7 +41,7 @@ function initP5sketch(p5path){
   p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
   
-  $("#controls>a:eq(3)").prop("disabled", false);
+  $("#controls>a:eq(3)").prop("disabled", true);
 }
 
 function loadP5sketch(p5path) {
