@@ -24,12 +24,14 @@ $("#controls>a:eq(2)").on('click', function(){ // Save
   //save('sketch_'+now_str+'.jpg');
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
-  if ($("#p5help").css("visibility") == "visible") {
-    $("#p5help").css("visibility", "hidden");
-  } else {
-    $("#p5help").css("visibility", "visible");
+  if($("#p5help").html() <> "") {
+    if ($("#p5help").css("visibility") == "visible") {
+      $("#p5help").css("visibility", "hidden");
+    } else {
+      $("#p5help").css("visibility", "visible");
+    }
+    $(this).toggleClass("onbutton");
   }
-  $(this).toggleClass("onbutton");
 });
 $("#controls>a:eq(4)").on('click', function(){ // Sketch List
   showElement('#sketchlist',this);
