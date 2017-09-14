@@ -40,7 +40,7 @@ function initP5sketch(p5name){
   loadP5sketch(p5path);
   
   var tname = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
-  tname = '<i class="fa fa-info" aria-hidden="true"></i> ' + tname;
+  tname = '<i class="fa fa-hand-o-right" aria-hidden="true"></i> ' + tname;
   $('#sketchlist>p>a[href*="'+p5name+'"]').html(tname);
 }
 
