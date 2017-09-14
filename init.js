@@ -40,8 +40,6 @@ function initP5sketch(p5path){
   if (get["p5"]) p5path = get["p5"];
   p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
-  
-  if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
 }
 
 function loadP5sketch(p5path) {
@@ -74,6 +72,7 @@ function checkStatus(){
     //userScript.src = p5path;
     userScript.async = false;
     document.body.appendChild(userScript);
+    if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
   }
 }
 
