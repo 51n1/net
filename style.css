@@ -96,13 +96,13 @@ a:hover {
   margin:0;
   text-align: center;
 }
-#p5text, #p5content, #p5canvas {
+#controls, #p5text, #p5content, #p5canvas {
   cursor: default;
 }
 #controls, #p5code, #p5output, #p5text {
   user-select: none; /* CSS3 */
   -moz-user-select: none; /* Firefox */
-  -webkit-user-select: none; /* Safari、Chrome */
+  -webkit-user-select: none; /* Safari, Chrome */
   -ms-user-select: none; /* IE10 */
 }
 #infopanel, #sketchlist, #p5content, #p5text {
