@@ -15,7 +15,6 @@ function setup() {
   select("#p5title").style("color", color(200));
   select("#p5help").html(hint1);
   select("#p5help").style("color", color(200));
-  //select("#p5help").style("display", "block");
   
   position = new Array(500);
   for (var i = 0; i < position.length; i++) {
@@ -35,7 +34,6 @@ function draw() {
     rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
-    //background(10);
     fill(255);
     beginShape();
     for(var i = 0; i < pointer; i++) {
@@ -47,7 +45,6 @@ function draw() {
     endShape();
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
-    //background(10);
     fill(0,255,255);
     beginShape();
     for(var i = 0; i < pointer; i++) {
@@ -59,7 +56,6 @@ function draw() {
     pointer = 0;
     on = false;
     select("#p5help").html(hint1);
-    //select("#p5help").style("display", "block");
   }
 }
 
