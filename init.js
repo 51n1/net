@@ -1,12 +1,13 @@
 /* update 14 Sep 2017 */
 var xmlHttp;
-var sketchCode; 
+var sketchCode;
 var codeFlag = false;
+var helpFlag = true;
 var defaultsketch = "drawingmotion3d";
 
 /* Event */
 //$(document).ready(function(){
-//  
+//
 //});
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
 $("#controls>a:eq(0)").on('click', function(){ // Info
@@ -23,8 +24,8 @@ $("#controls>a:eq(2)").on('click', function(){ // Save
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
   if($("#p5help").html() != "") {
-    if ($("#p5help").css("visibility") == "visible") $("#p5help").css("visibility", "hidden");
-    else $("#p5help").css("visibility", "visible");
+    if ($("#p5help").css("display") == "block") $("#p5help").css("display", "none");
+    else $("#p5help").css("display", "block");
     $(this).toggleClass("onbutton");
   }
 });
@@ -36,12 +37,16 @@ $("#controls>a:eq(4)").on('click', function(){ // Sketch List
 function initP5sketch(p5name){
   var get = GetQueryString();
   if (get["p5"]) p5name = get["p5"];
+  if (get["h"]) helpFlag = get["h"];
   p5path = "./snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
-  
+
   var tname = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
   tname = '<i class="fa fa-hand-o-right" aria-hidden="true"></i> ' + tname;
   $('#sketchlist>p>a[href*="'+p5name+'"]').html(tname);
+
+  //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
+  if(!helpFlag) $("#controls>a:eq(3)").addClass("nohelp");
 }
 
 function loadP5sketch(p5path) {
@@ -72,7 +77,6 @@ function checkStatus(){
     //userScript.src = p5path;
     userScript.async = false;
     document.body.appendChild(userScript);
-    if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
   }
 }
 

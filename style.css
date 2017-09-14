@@ -13,6 +13,7 @@ h1, h2, p, pre, #controls {
   font: 11px/1.5 verdana, sans-serif;
 }
 h1, h2 {
+  color: #000;
   font-weight: bold;
 }
 h2 { margin-bottom: 5px; }
@@ -68,9 +69,6 @@ a:hover {
 }
 #sketchlist * {
   text-align: right;
-}
-.nowsketch {
-  content: "<i class='fa fa-info' aria-hidden='true'></i> ";
 }
 #p5content {
   overflow: hidden;
