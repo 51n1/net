@@ -36,9 +36,12 @@ $("#controls>a:eq(4)").on('click', function(){ // Sketch List
 function initP5sketch(p5name){
   var get = GetQueryString();
   if (get["p5"]) p5name = get["p5"];
-  $('#sketchlist>p>a[href*="'+p5name+'"]:before').addClass("nowsketch");
   p5path = "./snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
+  
+  var tname = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
+  tname = '<i class="fa fa-info" aria-hidden="true"></i> ' + tname;
+  $('#sketchlist>p>a[href*="'+p5name+'"]').html(tname);
 }
 
 function loadP5sketch(p5path) {
