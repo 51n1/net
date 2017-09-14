@@ -105,7 +105,7 @@ a:hover {
   -webkit-user-select: none; /* Safari, Chrome */
   -ms-user-select: none; /* IE10 */
 }
-#infopanel, #sketchlist, #p5content, #p5help {
+#infopanel, #sketchlist, #p5content {
   display: none;
 }
 @media screen and (max-device-width: 480px) {
