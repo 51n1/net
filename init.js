@@ -6,8 +6,7 @@ var defaultsketch = "drawingmotion3d";
 
 /* Event */
 //$(document).ready(function(){
-  //document.getElementById("infopanel").style.display = "none";
-  //document.getElementById("sketchlist").style.display = "none";
+//  
 //});
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
 $("#controls>a:eq(0)").on('click', function(){ // Info
@@ -21,15 +20,11 @@ $("#controls>a:eq(2)").on('click', function(){ // Save
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
-  //save('sketch_'+now_str+'.jpg');
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
   if($("#p5help").html() != "") {
-    if ($("#p5help").css("visibility") == "visible") {
-      $("#p5help").css("visibility", "hidden");
-    } else {
-      $("#p5help").css("visibility", "visible");
-    }
+    if ($("#p5help").css("visibility") == "visible") $("#p5help").css("visibility", "hidden");
+    else $("#p5help").css("visibility", "visible");
     $(this).toggleClass("onbutton");
   }
 });
@@ -37,6 +32,7 @@ $("#controls>a:eq(4)").on('click', function(){ // Sketch List
   showElement('#sketchlist',this);
 });
 
+/* Initialize */
 function initP5sketch(p5path){
   var get = GetQueryString();
   if (get["p5"]) p5path = get["p5"];
@@ -65,9 +61,7 @@ function checkStatus(){
   if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
     sketchCode = xmlHttp.responseText;
     $("#p5code").html("<span class='codetext'>" + sketchCode + "</span>");
-    if (sketchCode.indexOf('new p5()') === -1) {
-      sketchCode += '\nnew p5();';
-    }
+    if (sketchCode.indexOf('new p5()') === -1) sketchCode += '\nnew p5();';
     var userScript = document.createElement('script');
     userScript.type = 'text/javascript';
     userScript.text = sketchCode;
@@ -127,7 +121,7 @@ function stopDefault(event) {
   if (event.target.tagName.toLowerCase() == "i") {return;}
   if (event.target.tagName.toLowerCase() == "span") {return;}
   if (event.target.tagName.toLowerCase() == "pre") {return;}
-  //if (event.target.id == "p5text") {return;}
+  //if (event.target.id == "p5help") {return;}
   event.preventDefault();
 }
 
