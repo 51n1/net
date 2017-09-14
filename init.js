@@ -1,6 +1,6 @@
 /* update 14 Sep 2017 */
 var xmlHttp;
-var sketchCode;
+var sketchCode; 
 var codeFlag = false;
 var defaultsketch = "drawingmotion3d";
 
@@ -24,10 +24,10 @@ $("#controls>a:eq(2)").on('click', function(){ // Save
   //save('sketch_'+now_str+'.jpg');
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
-  if ($("#p5text").css("visibility") == "visible") {
-    $("#p5text").css("visibility", "hidden");
+  if ($("#p5help").css("visibility") == "visible") {
+    $("#p5help").css("visibility", "hidden");
   } else {
-    $("#p5text").css("visibility", "visible");
+    $("#p5help").css("visibility", "visible");
   }
   $(this).toggleClass("onbutton");
 });
