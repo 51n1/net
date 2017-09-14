@@ -28,7 +28,7 @@ a:hover {
 #sidebar {
   position: fixed;
   /*float: left;*/
-  width: 270px;
+  width: 275px;
 }
 #controls {
   width: 100%;
@@ -66,7 +66,7 @@ a:hover {
 }
 #p5content {
   overflow: hidden;
-  margin-left: 280px;
+  margin-left: 285px;
 }
 #p5canvas {
   position: fixed;
