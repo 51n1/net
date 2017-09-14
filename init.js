@@ -22,7 +22,7 @@ $("#controls>a:eq(3)").on('click', function(){
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
 });
-$("#controls>a:eq(4)").on('click', function(){
+$("#controls>a:eq(5)").on('click', function(){
   showElement('#sketchlist',this);
 });
 
@@ -104,18 +104,18 @@ function showElement(target,obj) {
     $("#infopanel").css("display", "none");
     $("#sketchlist").css("display", "none");
     $("#controls>a:eq(1)").removeClass("onbutton");
-    $("#controls>a:eq(4)").removeClass("onbutton");
+    $("#controls>a:eq(5)").removeClass("onbutton");
     $(target).css("display", "block");
     $(obj).addClass("onbutton");
   }
 }
 
 function stopDefault(event) {
-  if (event.touches[0].target.tagName.toLowerCase() == "a") {return;}
-  if (event.touches[0].target.tagName.toLowerCase() == "i") {return;}
-  if (event.touches[0].target.tagName.toLowerCase() == "span") {return;}
-  if (event.touches[0].target.tagName.toLowerCase() == "pre") {return;}
-  //if (event.touches[0].target.id == "p5text") {return;}
+  if (event.target.tagName.toLowerCase() == "a") {return;}
+  if (event.target.tagName.toLowerCase() == "i") {return;}
+  if (event.target.tagName.toLowerCase() == "span") {return;}
+  if (event.target.tagName.toLowerCase() == "pre") {return;}
+  //if (event.target.id == "p5text") {return;}
   event.preventDefault();
 }
 
