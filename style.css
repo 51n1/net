@@ -58,6 +58,10 @@ a:hover {
 #controls>a.onbutton {
   background-color: rgba(180, 180, 180, 0.4);
 }
+#controls>a.nohelp {
+  color: #999;
+  background-color: rgba(240, 240, 240, 0.5);
+}
 #infopanel, #sketchlist {
   /* border-top: 1px solid #666; */
 }
