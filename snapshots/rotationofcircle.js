@@ -4,7 +4,7 @@ var rotation;
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  select("#p5output").html("Rotation of Circle");
+  select("#p5title").html("Rotation of Circle");
   select("body").style("background-color", color(255));
   radius = width > height ? height*0.4 : width*0.4;
   rotation = 0;
