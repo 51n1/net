@@ -11,11 +11,11 @@ function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
   select("body").style("background-color", color(10));
-  select("#p5output").html(title);
-  select("#p5output").style("color", color(200));
-  select("#p5text").html(hint1);
-  select("#p5text").style("color", color(200));
-  select("#p5text").style("display", "block");
+  select("#p5title").html(title);
+  select("#p5title").style("color", color(200));
+  select("#p5help").html(hint1);
+  select("#p5help").style("color", color(200));
+  //select("#p5help").style("display", "block");
   
   position = new Array(500);
   for (var i = 0; i < position.length; i++) {
@@ -58,8 +58,8 @@ function draw() {
   if( pointer > 0 && (touches.length > 1 || keyIsDown(ENTER)) ) {
     pointer = 0;
     on = false;
-    select("#p5text").html(hint1);
-    select("#p5text").style("display", "block");
+    select("#p5help").html(hint1);
+    //select("#p5help").style("display", "block");
   }
 }
 
@@ -75,7 +75,7 @@ function mouseDragged() {
     position[pointer][1] = mouseY - height*0.5;
     position[pointer][2] = 0;
     pointer++;
-    select("#p5text").html(pointer);
+    select("#p5help").html(pointer);
   } else {
     if( on == true ) start3D();
   }
@@ -90,5 +90,5 @@ function start3D() {
   for (var i=0; i<pointer; i++){
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
-  select("#p5text").html(hint2);
+  select("#p5help").html(hint2);
 }
