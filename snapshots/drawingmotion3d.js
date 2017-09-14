@@ -3,14 +3,15 @@ var pointer; // int
 var amount; // float
 var zdepth; // float
 var on; // boolean
-var hint1 = "Click or touch and keep dragging on screen, and then if release, drawn lines will start moving.";
+var title = "Drawing + Motion + 3D";
+var hint1 = "Keep dragging on screen, and then if release, drawn lines will start moving.";
 var hint2 = "You can turn a drawing object by sliding your mouse or finger. If make new one, push Enter key or touch with two fingers.";
 
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
   select("body").style("background-color", color(10));
-  select("#p5output").html("Drawing + Motion + 3D");
+  select("#p5output").html(title);
   select("#p5output").style("color", color(200));
   select("#p5text").html(hint1);
   select("#p5text").style("color", color(200));
