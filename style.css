@@ -84,11 +84,11 @@ a:hover {
   color: #111;
   background-color: rgba(255, 255, 255, 0.7);
 }
-#p5output, #p5text {
+#p5title, #p5help {
   font-weight: bold;
   text-transform: uppercase;
 }
-#p5text {
+#p5help {
   position: fixed;
   width: 100%;
   top: 50%;
@@ -96,16 +96,16 @@ a:hover {
   margin:0;
   text-align: center;
 }
-#controls, #p5text, #p5content, #p5canvas {
+#controls, #p5help, #p5content, #p5canvas {
   cursor: default;
 }
-#controls, #p5code, #p5output, #p5text {
+#controls, #p5code, #p5title, #p5help {
   user-select: none; /* CSS3 */
   -moz-user-select: none; /* Firefox */
   -webkit-user-select: none; /* Safari, Chrome */
   -ms-user-select: none; /* IE10 */
 }
-#infopanel, #sketchlist, #p5content, #p5text {
+#infopanel, #sketchlist, #p5content, #p5help {
   display: none;
 }
 @media screen and (max-device-width: 480px) {
@@ -124,7 +124,7 @@ a:hover {
   div#p5canvas {
     position: absolute;
   }
-  #p5text {
+  #p5help {
     position: static;
   }
 }
