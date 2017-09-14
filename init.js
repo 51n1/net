@@ -21,7 +21,7 @@ $("#controls>a:eq(3)").on('click', function(){
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   //saveCanvas('sketch_'+now_str,'png');
-  save('sketch_'+now_str+'png');
+  save('sketch_'+now_str+'.jpg');
 });
 $("#controls>a:eq(5)").on('click', function(){
   showElement('#sketchlist',this);
