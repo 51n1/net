@@ -40,6 +40,8 @@ function initP5sketch(p5path){
   if (get["p5"]) p5path = get["p5"];
   p5path = "./snapshots/" + p5path + ".js";
   loadP5sketch(p5path);
+  
+  $("#controls>a:eq(3)").prop("disabled", false);
 }
 
 function loadP5sketch(p5path) {
