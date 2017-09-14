@@ -10,20 +10,20 @@ var defaultsketch = "drawingmotion3d";
   //document.getElementById("sketchlist").style.display = "none";
 //});
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
-$("#controls>a:eq(1)").on('click', function(){
+$("#controls>a:eq(0)").on('click', function(){
   showElement('#infopanel',this);
 });
-$("#controls>a:eq(2)").on('click', function(){
+$("#controls>a:eq(1)").on('click', function(){
   showCode(this);
   $(this).toggleClass("onbutton");
 });
-$("#controls>a:eq(3)").on('click', function(){
+$("#controls>a:eq(2)").on('click', function(){
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
   //save('sketch_'+now_str+'.jpg');
 });
-$("#controls>a:eq(5)").on('click', function(){
+$("#controls>a:eq(4)").on('click', function(){
   showElement('#sketchlist',this);
 });
 
@@ -104,8 +104,8 @@ function showElement(target,obj) {
   } else {
     $("#infopanel").css("display", "none");
     $("#sketchlist").css("display", "none");
-    $("#controls>a:eq(1)").removeClass("onbutton");
-    $("#controls>a:eq(5)").removeClass("onbutton");
+    $("#controls>a:eq(0)").removeClass("onbutton");
+    $("#controls>a:eq(4)").removeClass("onbutton");
     $(target).css("display", "block");
     $(obj).addClass("onbutton");
   }
