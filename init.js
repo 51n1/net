@@ -70,14 +70,12 @@ function loadP5sketch(p5path) {
 function checkStatus(){
   if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
     sketchCode = xmlHttp.responseText;
-    var escapeHTML = function (sketchCode) {
-    return sketchCode
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-    };
+    var escapeHTML = sketchCode.replace(/&/g, '&amp;');
+    escapeHTML = escapeHTML.replace(/</g, '&lt;');
+    escapeHTML = escapeHTML.replace(/>/g, '&gt;');
+    escapeHTML = escapeHTML.replace(/"/g, '&quot;');
+    escapeHTML = escapeHTML.replace(/'/g, '&#39;');
+    
     $("#p5code").html("<span class='codetext'>" + escapeHTML + "</span>");
     if (sketchCode.indexOf('new p5()') === -1) sketchCode += '\nnew p5();';
     var userScript = document.createElement('script');
