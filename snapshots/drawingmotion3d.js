@@ -26,7 +26,7 @@ function setup() {
     position[i] = new Array(3);
   }
   pointer = 0;
-  amount = 10.0;
+  amount = 1.0;
   zdepth = 1.5;
   on = false;
 
