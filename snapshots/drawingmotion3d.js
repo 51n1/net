@@ -51,7 +51,7 @@ function draw() {
     var rms = analyzer.getLevel();
     rms = map(rms, 0, 1, 0, 10);
     select("#p5help").html(rms+"<br>"+hint2);
-    beginShape();
+    //beginShape();
     for(var i = 0; i < pointer; i++) {
       position[i][0] += random(-rms*amount, rms*amount);
       position[i][1] += random(-rms*amount, rms*amount);
@@ -60,9 +60,10 @@ function draw() {
       //position[i][0] += rms*amount;
       //position[i][1] += rms*amount;
       //position[i][2] += rms*amount;
-      vertex(position[i][0], position[i][1], position[i][2]);
+      //vertex(position[i][0], position[i][1], position[i][2]);
+      bezier(position[i][0], position[i][1], position[i][2], position[i][0], position[i][1], position[i][2], position[i][0], position[i][1], position[i][2], position[i][0], position[i][1], position[i][2]);
     }
-    endShape();
+    //endShape();
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
     fill(0,255,255);
