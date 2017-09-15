@@ -33,8 +33,10 @@ $("#controls>a:eq(4)").on('click', function(){ // Sketch List
 /* Initialize */
 function initP5sketch(p5name){
   var get = GetQueryString();
-  if (get["p5"]) p5name = get["p5"];
-  if (get["h"] != "undefined") helpFlag = get["h"];
+  if (get["p5"]) {
+    p5name = get["p5"];
+    helpFlag = get["h"];
+  }
   p5path = "./snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
 
