@@ -9,7 +9,7 @@ var hint2 = "You can turn a drawing object by sliding your mouse or finger. If m
 var sound, analyzer;
 
 function preload() {
-  sound = loadSound('../sounds/20170914.wav');
+  sound = loadSound('sounds/20170914.wav');
 }
 
 function setup() {
@@ -26,12 +26,15 @@ function setup() {
     position[i] = new Array(3);
   }
   pointer = 0;
-  amount = 6.0;
+  amount = 10.0;
   zdepth = 1.5;
   on = false;
 
   analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
   analyzer.setInput(sound); // Patch the input to an volume analyzer
+  //sound.play();
+  sound.loop();
+  sound.stop();
   //sound.setVolume(0.1);
 }
 
@@ -45,12 +48,17 @@ function draw() {
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
     fill(255);
+    var rms = analyzer.getLevel();
+    select("#p5help").html(rms+"<br>"+hint2);
     beginShape();
     for(var i = 0; i < pointer; i++) {
-      var rms = analyzer.getLevel();
       position[i][0] += random(-rms*amount, rms*amount);
       position[i][1] += random(-rms*amount, rms*amount);
       position[i][2] += random(-rms*amount, rms*amount);
+      //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
+      //position[i][0] += rms*amount;
+      //position[i][1] += rms*amount;
+      //position[i][2] += rms*amount;
       vertex(position[i][0], position[i][1], position[i][2]);
     }
     endShape();
@@ -100,8 +108,8 @@ function initSketch() {
   pointer = 0;
   on = false;
   select("#p5help").html(hint1);
-  sound.setVolume(0);
-  sound.stop();
+  //sound.setVolume(0);
+  if(sound.isPlaying()) sound.stop();
 }
 
 function start3D() {
@@ -110,7 +118,7 @@ function start3D() {
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);
-  sound.play();
-  sound.loop();
-  sound.setVolume(1);
+  if(!sound.isPlaying()) sound.play();
+  //sound.loop();
+  //sound.setVolume(1);
 }
