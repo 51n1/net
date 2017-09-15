@@ -66,6 +66,7 @@ function draw() {
       vertex(position[i][0], position[i][1], position[i][2]);
     }
     endShape();
+    amount += 0.01;
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
     fill(0,255,255);
