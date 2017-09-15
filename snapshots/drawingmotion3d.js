@@ -49,7 +49,7 @@ function draw() {
     rotateZ(frameCount*0.005);
     fill(255);
     var rms = analyzer.getLevel();
-    rms = map(rms, 0, rms, 0, 10);
+    rms = map(rms, 0, 1, 0, 10);
     select("#p5help").html(rms+"<br>"+hint2);
     beginShape();
     for(var i = 0; i < pointer; i++) {
