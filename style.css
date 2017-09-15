@@ -90,11 +90,11 @@ a:hover {
   color: #111;
   background-color: rgba(255, 255, 255, 0.7);
 }
-#p5title, #p5help {
+#p5title, #p5help, #p5_loading {
   font-weight: bold;
   text-transform: uppercase;
 }
-#p5help {
+#p5help, #p5_loading {
   position: fixed;
   width: 100%;
   top: 50%;
@@ -130,7 +130,7 @@ a:hover {
   div#p5canvas {
     position: absolute;
   }
-  #p5help {
+  #p5help, #p5_loading {
     position: static;
   }
 }
