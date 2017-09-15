@@ -26,7 +26,7 @@ function setup() {
     position[i] = new Array(3);
   }
   pointer = 0;
-  amount = 0;
+  amount = 2.0;
   zdepth = 1.5;
   on = false;
 
@@ -48,17 +48,17 @@ function draw() {
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
     fill(255);
-    //var rms = analyzer.getLevel();
-    //rms = map(rms, 0, 1, 0, 10);
-    //select("#p5help").html(rms+"<br>"+hint2);
+    var rms = analyzer.getLevel();
+    rms = map(rms, 0, 1, 0, 10);
+    select("#p5help").html(rms+"<br>"+hint2);
     beginShape();
-    for(var i = 0; i < pointer-1; i++) {
-      position[i][0] += map(noise(amount), 0, 1, -5, 5);
-      position[i][1] += map(noise(amount), 0, 1, -5, 5);
-      position[i][2] += map(noise(amount), 0, 1, -5, 5);
-      //position[i][0] += random(-rms*amount, rms*amount);
-      //position[i][1] += random(-rms*amount, rms*amount);
-      //position[i][2] += random(-rms*amount, rms*amount);
+    for(var i = 0; i < pointer; i++) {
+      //position[i][0] += map(noise(amount), 0, 1, -5, 5);
+      //position[i][1] += map(noise(amount), 0, 1, -5, 5);
+      //position[i][2] += map(noise(amount), 0, 1, -5, 5);
+      position[i][0] += random(-rms*amount, rms*amount);
+      position[i][1] += random(-rms*amount, rms*amount);
+      position[i][2] += random(-rms*amount, rms*amount);
       //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
       //position[i][0] += rms*amount;
       //position[i][1] += rms*amount;
@@ -66,7 +66,7 @@ function draw() {
       vertex(position[i][0], position[i][1], position[i][2]);
     }
     endShape();
-    amount += 0.001;
+    //amount += 0.001;
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
     fill(0,255,255);
