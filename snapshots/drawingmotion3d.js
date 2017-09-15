@@ -50,7 +50,7 @@ function draw() {
     fill(255);
     //var rms = analyzer.getLevel();
     //rms = map(rms, 0, 1, 0, 10);
-    select("#p5help").html(rms+"<br>"+hint2);
+    //select("#p5help").html(rms+"<br>"+hint2);
     beginShape();
     for(var i = 0; i < pointer-1; i++) {
       position[i][0] += map(noise(amount), 0, 1, -100, 100);
