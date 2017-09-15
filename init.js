@@ -24,6 +24,8 @@ $("#controls>a:eq(3)").on('click', function(){ // Help
     if ($("#p5help").css("display") == "block") $("#p5help").css("display", "none");
     else $("#p5help").css("display", "block");
     $(this).toggleClass("onbutton");
+  } else {
+    return false;
   }
 });
 $("#controls>a:eq(4)").on('click', function(){ // Sketch List
