@@ -49,6 +49,7 @@ function draw() {
     rotateZ(frameCount*0.005);
     fill(255);
     var rms = analyzer.getLevel();
+    rms = map(rms, 0, rms, 0, 10);
     select("#p5help").html(rms+"<br>"+hint2);
     beginShape();
     for(var i = 0; i < pointer; i++) {
@@ -108,7 +109,6 @@ function initSketch() {
   pointer = 0;
   on = false;
   select("#p5help").html(hint1);
-  //sound.setVolume(0);
   if(sound.isPlaying()) sound.stop();
 }
 
@@ -119,6 +119,4 @@ function start3D() {
   }
   select("#p5help").html(hint2);
   if(!sound.isPlaying()) sound.play();
-  //sound.loop();
-  //sound.setVolume(1);
 }
