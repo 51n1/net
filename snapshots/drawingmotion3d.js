@@ -52,12 +52,13 @@ function draw() {
     //rms = map(rms, 0, 1, 0, 10);
     var rms = analyzer.getLevel();
     amount += rms;
+    amount = random(1) > 0.5 ? amount*-1 : amount*+1;
     select("#p5help").html(amount+"<br>"+hint2);
     beginShape();
     for(var i = 0; i < pointer-1; i++) {
-      position[i][0] += map(noise(amount), 0, 1, 0, 1); 
-      position[i][1] += map(noise(amount), 0, 1, 0, 1);
-      position[i][2] += map(noise(amount), 0, 1, 0, 1);
+      position[i][0] += map(noise(amount), 0, 1, 0, 0.1); 
+      position[i][1] += map(noise(amount), 0, 1, 0, 0.1);
+      position[i][2] += map(noise(amount), 0, 1, 0, 0.1);
       //position[i][0] += random(-rms*amount, rms*amount);
       //position[i][1] += random(-rms*amount, rms*amount);
       //position[i][2] += random(-rms*amount, rms*amount);
