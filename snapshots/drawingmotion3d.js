@@ -4,12 +4,12 @@ var amount; // float
 var zdepth; // float
 var on; // boolean
 var title = "Drawing + Motion + 3D + Audio";
-var hint1 = "Keep dragging on screen, and then if release, drawn lines will start moving with sound.";
+var hint1 = "Keep dragging on screen, and then if release, drawn lines will start moving with sound. Sound on with button of menu bar.";
 var hint2 = "You can turn a drawing object by sliding your mouse or finger. If make new one, push spacebar key or touch with two fingers.";
-var sound, analyzer;
+var mysound, analyzer;
 
 function preload() {
-  sound = loadSound('sounds/20170914.wav');
+  mysound = loadSound('sounds/20170914.wav');
 }
 
 function setup() {
@@ -31,11 +31,11 @@ function setup() {
   on = false;
 
   analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
-  analyzer.setInput(sound); // Patch the input to an volume analyzer
-  //sound.play();
-  sound.loop();
-  sound.stop();
-  //sound.setVolume(0.1);
+  analyzer.setInput(mysound); // Patch the input to an volume analyzer
+  //mysound.play();
+  mysound.loop();
+  mysound.stop();
+  //mysound.setVolume(0.1);
 }
 
 function draw() {
@@ -51,22 +51,23 @@ function draw() {
     var rms = analyzer.getLevel();
     rms = map(rms, 0, 1, 0, 10);
     select("#p5help").html(rms+"<br>"+hint2);
+    //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
     beginShape();
+    var addition = random(-rms, rms);
     for(var i = 0; i < pointer; i++) {
-      //position[i][0] += map(noise(amount), 0, 1, -5, 5);
-      //position[i][1] += map(noise(amount), 0, 1, -5, 5);
-      //position[i][2] += map(noise(amount), 0, 1, -5, 5);
+      //position[i][0] += map(noise(offset), 0, 1, -5, 5);
+      //position[i][1] += map(noise(offset), 0, 1, -5, 5);
+      //position[i][2] += map(noise(offset), 0, 1, -5, 5);
       position[i][0] += random(-rms*amount, rms*amount);
       position[i][1] += random(-rms*amount, rms*amount);
       position[i][2] += random(-rms*amount, rms*amount);
-      //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
-      //position[i][0] += rms*amount;
-      //position[i][1] += rms*amount;
-      //position[i][2] += rms*amount;
+      var newx = position[i][0] + addition*2;
+      var newy = position[i][1] + addition*2;
+      var newz = position[i][2] + addition*2;
       vertex(position[i][0], position[i][1], position[i][2]);
+      vertex(newx, newy, newz);
     }
     endShape();
-    //amount += 0.001;
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
     fill(0,255,255);
@@ -113,7 +114,8 @@ function initSketch() {
   pointer = 0;
   on = false;
   select("#p5help").html(hint1);
-  if(sound.isPlaying()) sound.stop();
+  if(mysound.isPlaying()) mysound.stop();
+  soundFlagSub = false;
 }
 
 function start3D() {
@@ -122,5 +124,6 @@ function start3D() {
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);
-  if(!sound.isPlaying()) sound.play();
+  if(soundFlagMain && !mysound.isPlaying()) mysound.play();
+  soundFlagSub = true;
 }

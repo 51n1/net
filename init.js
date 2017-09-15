@@ -4,6 +4,8 @@ var sketchCode;
 var codeFlag = false;
 var defaultsketch = "drawingmotion3d";
 var helpFlag = 1;
+var soundFlagMain = false;
+var soundFlagSub = false;
 
 /* Event */
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
@@ -28,7 +30,23 @@ $("#controls>a:eq(3)").on('click', function(){ // Help
     return false;
   }
 });
-$("#controls>a:eq(4)").on('click', function(){ // Sketch List
+$("#controls>a:eq(4)").on('click', function(){ // Sount
+  if( typeof(mysound) != "undefined" ) {
+    if( soundFlagMain ) {
+      if(mysound.isPlaying()) mysound.stop();
+      soundFlagMain = false;
+      $(this).html('<i class="fa fa-volume-off" aria-hidden="true"></i> Off');
+    } else {
+      if(soundFlagSub && !mysound.isPlaying()) mysound.play();
+      soundFlagMain = true;
+      $(this).html('<i class="fa fa-volume-up" aria-hidden="true"></i> On');
+    }
+    $(this).toggleClass("onbutton");
+  } else {
+    return false;
+  }
+});
+$("#controls>a:eq(5)").on('click', function(){ // Sketch List
   showElement('#sketchlist',this);
 });
 
@@ -42,12 +60,12 @@ function initP5sketch(p5name){
   p5path = "./snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
 
-  var tname = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
-  tname = '<i class="fa fa-hand-o-right" aria-hidden="true"></i> ' + tname;
-  $('#sketchlist>p>a[href*="'+p5name+'"]').html(tname);
+  var nowsketch = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
+  nowsketch = nowsketch + ' <i class="fa fa-hand-o-left" aria-hidden="true"></i>';
+  $('#sketchlist>p>a[href*="'+p5name+'"]').html(nowsketch);
 
-  //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
-  if(helpFlag == 0) $("#controls>a:eq(3)").addClass("nohelp");
+  //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nonactive");
+  if(helpFlag == 0) $("#controls>a:eq(3)").addClass("nonactive");
 }
 
 function loadP5sketch(p5path) {
@@ -75,7 +93,7 @@ function checkStatus(){
     escapeHTML = escapeHTML.replace(/>/g, '&gt;');
     escapeHTML = escapeHTML.replace(/"/g, '&quot;');
     escapeHTML = escapeHTML.replace(/'/g, '&#39;');
-    
+
     $("#p5code").html("<span class='codetext'>" + escapeHTML + "</span>");
     if (sketchCode.indexOf('new p5()') === -1) sketchCode += '\nnew p5();';
     var userScript = document.createElement('script');
@@ -84,6 +102,10 @@ function checkStatus(){
     //userScript.src = p5path;
     userScript.async = false;
     document.body.appendChild(userScript);
+
+    if( typeof(mysound) == "undefined" ) {
+      $("#controls>a:eq(4)").addClass("nonactive");
+    }
   }
 }
 
