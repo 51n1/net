@@ -3,7 +3,7 @@ var xmlHttp;
 var sketchCode;
 var codeFlag = false;
 var defaultsketch = "drawingmotion3d";
-var helpFlag = true;
+var helpFlag = 1;
 
 /* Event */
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
@@ -45,7 +45,7 @@ function initP5sketch(p5name){
   $('#sketchlist>p>a[href*="'+p5name+'"]').html(tname);
 
   //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nohelp");
-  if(!helpFlag) $("#controls>a:eq(3)").addClass("nohelp");
+  if(helpFlag == 0) $("#controls>a:eq(3)").addClass("nohelp");
 }
 
 function loadP5sketch(p5path) {
