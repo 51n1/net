@@ -26,7 +26,7 @@ function setup() {
     position[i] = new Array(3);
   }
   pointer = 0;
-  amount = 1.0;
+  amount = 0;
   zdepth = 1.5;
   on = false;
 
@@ -48,23 +48,25 @@ function draw() {
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
     fill(255);
+    //var rms = analyzer.getLevel();
+    //rms = map(rms, 0, 1, 0, 10);
     var rms = analyzer.getLevel();
-    rms = map(rms, 0, 1, 0, 10);
-    select("#p5help").html(rms+"<br>"+hint2);
+    amount += rms;
+    select("#p5help").html(amount+"<br>"+hint2);
     beginShape();
-    vertex(position[0][0], position[0][1], position[0][2]);
     for(var i = 0; i < pointer-1; i++) {
-      position[i][0] += random(-rms*amount, rms*amount);
-      position[i][1] += random(-rms*amount, rms*amount);
-      position[i][2] += random(-rms*amount, rms*amount);
+      position[i][0] += map(noise(amount), 0, 1, 0, 10); 
+      position[i][1] += map(noise(amount), 0, 1, 0, 10);
+      position[i][2] += map(noise(amount), 0, 1, 0, 10);
+      //position[i][0] += random(-rms*amount, rms*amount);
+      //position[i][1] += random(-rms*amount, rms*amount);
+      //position[i][2] += random(-rms*amount, rms*amount);
       //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
       //position[i][0] += rms*amount;
       //position[i][1] += rms*amount;
       //position[i][2] += rms*amount;
-      //vertex(position[i][0], position[i][1], position[i][2]);
-      quadraticVertex(position[i][0], position[i][1], position[i][2],position[i+1][0], position[i+1][1], position[i+1][2]);
+      vertex(position[i][0], position[i][1], position[i][2]);
     }
-    vertex(position[pointer-1][0], position[pointer-1][1], position[pointer-1][2]);
     endShape();
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
