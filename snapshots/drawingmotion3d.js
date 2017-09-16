@@ -9,7 +9,7 @@ var hint2 = "You can turn a drawing object by sliding your mouse or finger. If m
 var mysound, analyzer;
 
 function preload() {
-  mysound = loadSound('sounds/20170914.wav');
+  mysound = loadSound('./sounds/20170915.wav');
 }
 
 function setup() {
@@ -17,7 +17,7 @@ function setup() {
   canvas.parent("p5canvas");
   select("body").style("background-color", color(10));
   select("#p5title").html(title);
-  select("#p5title").style("color", color(200));
+  //select("#p5title").style("color", color(200));
   select("#p5help").html(hint1);
   select("#p5help").style("color", color(200));
 
