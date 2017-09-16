@@ -9,17 +9,12 @@ var soundFlagSub = false;
 
 /* Event */
 $(window).on('load', function(){ initP5sketch(defaultsketch); });
-$("#controls>a:eq(0)").on('click', function(){ // Info
+$("#controls>a:eq(1)").on('click', function(){ // Info
   showElement('#infopanel',this);
 });
-$("#controls>a:eq(1)").on('click', function(){ // Code
+$("#controls>a:eq(2)").on('click', function(){ // Code
   showCode(this);
   $(this).toggleClass("onbutton");
-});
-$("#controls>a:eq(2)").on('click', function(){ // Save
-  var now = new Date();
-  var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
-  saveCanvas('sketch_'+now_str,'png');
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
   if($("#p5help").html() != "") {
@@ -30,7 +25,12 @@ $("#controls>a:eq(3)").on('click', function(){ // Help
     return false;
   }
 });
-$("#controls>a:eq(4)").on('click', function(){ // Sount
+$("#controls>a:eq(4)").on('click', function(){ // Save
+  var now = new Date();
+  var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
+  saveCanvas('sketch_'+now_str,'png');
+});
+$("#controls>a:eq(5)").on('click', function(){ // Sound
   if( typeof(mysound) != "undefined" ) {
     if( soundFlagMain ) {
       if(mysound.isPlaying()) mysound.stop();
@@ -46,7 +46,7 @@ $("#controls>a:eq(4)").on('click', function(){ // Sount
     return false;
   }
 });
-$("#controls>a:eq(5)").on('click', function(){ // Sketch List
+$("#controls>a:eq(6)").on('click', function(){ // Sketch List
   showElement('#sketchlist',this);
 });
 
@@ -104,7 +104,7 @@ function checkStatus(){
     document.body.appendChild(userScript);
 
     if( typeof(mysound) == "undefined" ) {
-      $("#controls>a:eq(4)").addClass("nonactive");
+      $("#controls>a:eq(5)").addClass("nonactive");
     }
   }
 }
@@ -146,8 +146,8 @@ function showElement(target,obj) {
   } else {
     $("#infopanel").css("display", "none");
     $("#sketchlist").css("display", "none");
-    $("#controls>a:eq(0)").removeClass("onbutton");
-    $("#controls>a:eq(4)").removeClass("onbutton");
+    $("#controls>a:eq(1)").removeClass("onbutton");
+    $("#controls>a:eq(6)").removeClass("onbutton");
     $(target).css("display", "block");
     $(obj).addClass("onbutton");
   }

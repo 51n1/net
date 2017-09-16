@@ -29,7 +29,7 @@ a:hover {
 #sidebar {
   position: fixed;
   /*float: left;*/
-  width: 290px;
+  width: 350px;
 }
 #controls {
   width: 100%;
@@ -53,7 +53,7 @@ a:hover {
   -webkit-border-radius: 3px; /* Safari, Google Chrome */
   -moz-border-radius: 3px; /* Firefox */
 }
-#controls>a:nth-child(6) {
+#controls>a:nth-child(7) {
   float: right;
 }
 #controls>a.onbutton {
@@ -72,7 +72,7 @@ a:hover {
 }
 #p5content {
   overflow: hidden;
-  margin-left: 300px;
+  margin-left: 360px;
 }
 #p5canvas {
   position: fixed;
@@ -90,7 +90,7 @@ a:hover {
   color: #111;
   background-color: rgba(255, 255, 255, 0.7);
 }
-#p5title, #p5help, #p5_loading {
+#p5help, #p5_loading {
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -105,7 +105,7 @@ a:hover {
 #controls, #p5help, #p5content, #p5canvas {
   cursor: default;
 }
-#controls, #p5code, #p5title, #p5help {
+#controls, #p5code, #p5help {
   user-select: none; /* CSS3 */
   -moz-user-select: none; /* Firefox */
   -webkit-user-select: none; /* Safari, Chrome */
@@ -116,7 +116,7 @@ a:hover {
 }
 @media screen and (max-device-width: 480px) {
   h1,h2,p,pre,#controls {
-    font-size: 100%;
+    font-size: 90%;
   }
   #sidebar {
     position: static;
