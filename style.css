@@ -116,7 +116,7 @@ a:hover {
 }
 @media screen and (max-device-width: 480px) {
   h1,h2,p,pre,#controls {
-    font-size: 90%;
+    font-size: 70%;
   }
   #sidebar {
     position: static;
