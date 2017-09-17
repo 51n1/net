@@ -118,6 +118,9 @@ a:hover {
   h1,h2,p,pre,#controls {
     font-size: 70%;
   }
+  #infopanel>*, #sketchlist>* {
+    font-size: 100%;
+  }
   #sidebar {
     position: static;
     float: none;
