@@ -55,12 +55,15 @@ function initP5sketch(p5name){
     p5name = get["p5"];
     helpFlag = get["h"];
   }
-  p5path = "./snapshots/" + p5name + ".js";
+  p5path = "snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
 
   var nowsketch = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
   nowsketch = nowsketch + ' <i class="fa fa-hand-o-left" aria-hidden="true"></i>';
   $('#sketchlist>p>a[href*="'+p5name+'"]').html(nowsketch);
+
+  var codelink = "https://github.com/51n1/net/blob/master/" + p5path;
+  $('#codepanel>p>a').attr('href', codelink);
 
   //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nonactive");
   if(helpFlag == 0) $("#controls>a:eq(3)").addClass("nonactive");

@@ -17,7 +17,6 @@ function setup() {
   canvas.parent("p5canvas");
   select("body").style("background-color", color(10));
   select("#p5title").html(title);
-  //select("#p5title").style("color", color(200));
   select("#p5help").html(hint1);
   select("#p5help").style("color", color(200));
 
