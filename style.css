@@ -64,15 +64,11 @@ a:hover {
   background-color: rgba(240, 240, 240, 0.5);
   cursor: default;
 }
-#infopanel, #sketchlist {
+#infopanel, #sketchlist, #codepanel {
   /* border-top: 1px solid #666; */
 }
 #sketchlist * {
   text-align: right;
-}
-#p5content {
-  overflow: hidden;
-  margin-left: 360px;
 }
 #p5canvas {
   position: fixed;
@@ -82,13 +78,6 @@ a:hover {
   top:0;
   left:0;
   z-index: -1;
-}
-#p5code {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-}
-.codetext {
-  color: #111;
-  background-color: rgba(255, 255, 255, 0.7);
 }
 #p5help, #p5_loading {
   font-weight: bold;
@@ -102,33 +91,29 @@ a:hover {
   margin:0;
   text-align: center;
 }
-#controls, #p5help, #p5content, #p5canvas {
+#controls, #p5help, #p5canvas {
   cursor: default;
 }
-#controls, #p5code, #p5help {
+#controls, #p5help {
   user-select: none; /* CSS3 */
   -moz-user-select: none; /* Firefox */
   -webkit-user-select: none; /* Safari, Chrome */
   -ms-user-select: none; /* IE10 */
 }
-#infopanel, #sketchlist, #p5content {
+#infopanel, #sketchlist, #codepanel {
   display: none;
 }
 @media screen and (max-device-width: 480px) {
   h1,h2,p,pre,#controls {
     font-size: 70%;
   }
-  #infopanel>*, #sketchlist>* {
+  #infopanel>*, #sketchlist>*, #codepanel>* {
     font-size: 100%;
   }
   #sidebar {
     position: static;
     float: none;
     width: 100%;
-  }
-  #p5content {
-    width: 100%;
-    margin-left: 0;
   }
   div#p5canvas {
     position: absolute;
