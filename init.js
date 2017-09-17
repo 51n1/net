@@ -15,13 +15,14 @@ $("#controls>a:eq(2)").on('click', function(){ // Code
   showElement('#codepanel',this);
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
-  if($("#p5help").html() != "") {
-    if ($("#p5help").css("display") == "block") $("#p5help").css("display", "none");
-    else $("#p5help").css("display", "block");
-    $(this).toggleClass("onbutton");
-  } else {
-    return false;
-  }
+  // if($("#p5help").html() != "") {
+  //   if ($("#p5help").css("display") == "block") $("#p5help").css("display", "none");
+  //   else $("#p5help").css("display", "block");
+  //   $(this).toggleClass("onbutton");
+  // } else {
+  //   return false;
+  // }
+  if (helpFlag == 1) showElement('#helppanel',this);
 });
 $("#controls>a:eq(4)").on('click', function(){ // Save
   var now = new Date();
@@ -130,8 +131,10 @@ function showElement(target,obj) {
     $("#infopanel").css("display", "none");
     $("#codepanel").css("display", "none");
     $("#sketchlist").css("display", "none");
+    $("#helppanel").css("display", "none");
     $("#controls>a:eq(1)").removeClass("onbutton");
     $("#controls>a:eq(2)").removeClass("onbutton");
+    $("#controls>a:eq(3)").removeClass("onbutton");
     $("#controls>a:eq(6)").removeClass("onbutton");
     $(target).css("display", "block");
     $(obj).addClass("onbutton");

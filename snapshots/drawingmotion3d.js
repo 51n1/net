@@ -18,7 +18,6 @@ function setup() {
   select("body").style("background-color", color(10));
   select("#p5title").html(title);
   select("#p5help").html(hint1);
-  select("#p5help").style("color", color(200));
 
   position = new Array(500);
   for (var i = 0; i < position.length; i++) {
@@ -49,7 +48,7 @@ function draw() {
     fill(255);
     var rms = analyzer.getLevel();
     rms = map(rms, 0, 1, 0, 10);
-    select("#p5help").html(rms+"<br>"+hint2);
+    select("#p5help").html(hint2+"<br>"+rms);
     //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
     beginShape();
     var addition = random(-rms, rms);

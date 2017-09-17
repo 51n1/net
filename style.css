@@ -24,7 +24,7 @@ a {
   cursor: pointer;
 }
 a:hover {
-  color: #333;
+  color: #666;
 }
 #sidebar {
   position: fixed;
@@ -64,7 +64,7 @@ a:hover {
   background-color: rgba(240, 240, 240, 0.5);
   cursor: default;
 }
-#infopanel, #sketchlist, #codepanel {
+#infopanel, #sketchlist, #codepanel, #helppanel {
   /* border-top: 1px solid #666; */
 }
 #sketchlist * {
@@ -82,32 +82,32 @@ a:hover {
 #p5help, #p5_loading {
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
 }
-#p5help, #p5_loading {
+#p5_loading {
   position: fixed;
   width: 100%;
   top: 50%;
   left: 0;
   margin:0;
-  text-align: center;
 }
-#controls, #p5help, #p5canvas {
+#controls, #p5canvas {
   cursor: default;
 }
-#controls, #p5help {
+#controls {
   user-select: none; /* CSS3 */
   -moz-user-select: none; /* Firefox */
   -webkit-user-select: none; /* Safari, Chrome */
   -ms-user-select: none; /* IE10 */
 }
-#infopanel, #sketchlist, #codepanel {
+#infopanel, #sketchlist, #codepanel, #helppanel {
   display: none;
 }
 @media screen and (max-device-width: 480px) {
   h1,h2,p,pre,#controls {
     font-size: 70%;
   }
-  #infopanel>*, #sketchlist>*, #codepanel>* {
+  #infopanel>*, #sketchlist>*, #codepanel>*, #helppanel>* {
     font-size: 100%;
   }
   #sidebar {
@@ -118,7 +118,7 @@ a:hover {
   div#p5canvas {
     position: absolute;
   }
-  #p5help, #p5_loading {
+  #p5_loading {
     position: static;
   }
 }
