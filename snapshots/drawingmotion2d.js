@@ -10,8 +10,8 @@ function setup() {
   document.title = p5title + " - " + document.title;
   select("#p5title").html(p5title);
   select("body").style("background-color", color(230));
-  select("#p5help").html("Click and move on screen, then if release, drawn lines will be moving.");
-  
+  select("#p5help").html("<p>Click and move on screen, then if release, drawn lines will be moving.</p>");
+
   position = new Array(200);
   for (var i = 0; i < 200; i++) {
     position[i] = new Array(2);
@@ -19,7 +19,7 @@ function setup() {
   pointer = 0;
   amount = 0.5;
   on = false;
-  
+
   fill(230);
   background(230);
 }

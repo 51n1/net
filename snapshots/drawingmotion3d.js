@@ -3,8 +3,8 @@ var pointer; // int
 var amount; // float
 var zdepth; // float
 var on; // boolean
-var hint1 = "Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.";
-var hint2 = "You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.";
+var hint1 = "<h2>1st Step</h2><p>Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.</p>";
+var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.</p>";
 var mysound, analyzer;
 
 function preload() {
