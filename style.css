@@ -83,6 +83,7 @@ a:hover {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  font: 11px/1.5 verdana, sans-serif;
 }
 #p5_loading, #p5text {
   position: fixed;
