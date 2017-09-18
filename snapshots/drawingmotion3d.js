@@ -17,7 +17,7 @@ function setup() {
   canvas.parent("p5canvas");
   select("body").style("background-color", color(10));
   select("#p5title").html(title);
-  select("title").html(title+" - 51N1");
+  document.title = title + " - " + document.title;
   select("#p5help").html(hint1);
 
   position = new Array(500);
