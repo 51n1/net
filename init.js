@@ -135,7 +135,7 @@ function showElement(target,obj) {
 }
 function checkOnCanvas(event) {
   console.log(event.target);
-  if (event.target.id == "defaultCanvas0") return true;
+  if (event.target.tagName.toLowerCase() == "canvas") return true;
   else return false;
 }
 
