@@ -79,22 +79,22 @@ a:hover {
   left:0;
   z-index: -1;
 }
-#p5help, #p5_loading {
+#p5help, #p5_loading, #p5text {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
 }
-#p5_loading {
+#p5_loading, #p5text {
   position: fixed;
   width: 100%;
   top: 50%;
   left: 0;
   margin:0;
 }
-#controls, #p5canvas {
+#controls, #p5canvas, #p5text {
   cursor: default;
 }
-#controls {
+#controls, #p5text {
   user-select: none; /* CSS3 */
   -moz-user-select: none; /* Firefox */
   -webkit-user-select: none; /* Safari, Chrome */
@@ -118,7 +118,7 @@ a:hover {
   div#p5canvas {
     position: absolute;
   }
-  #p5_loading {
+  #p5_loading, #p5text {
     position: static;
   }
 }
