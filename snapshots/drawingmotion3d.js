@@ -78,16 +78,17 @@ function draw() {
 }
 
 function mousePressed() {
-  if(!checkOnSketch(event)) exit;
+  if(!checkOnSketch(event)) {
   if( pointer == 0 ) {
     on = true;
   } else if( pointer > 0 && touches.length > 1 ) {
     initSketch();
   }
+  }
 }
 
 function mouseDragged() {
-  if(!checkOnSketch(event)) exit;
+  if(!checkOnSketch(event)) {
   if( on == true && pointer < position.length ) {
     position[pointer][0] = mouseX - width*0.5;
     position[pointer][1] = mouseY - height*0.5;
@@ -97,11 +98,13 @@ function mouseDragged() {
   } else {
     if( on == true ) start3D();
   }
+  }
 }
 
 function mouseReleased() {
-  if(!checkOnSketch(event)) exit;
+  if(!checkOnSketch(event)) {
   if( on == true && pointer > 0 ) start3D();
+  }
 }
 
 function keyTyped() {
