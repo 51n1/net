@@ -134,7 +134,9 @@ function showElement(target,obj) {
   }
 }
 function checkOnSketch(event) {
+  console.log(event.target);
   if (event.target.id == "controls") return false;
+  else if (event.target.id == "controls") return false;
   else return true;
 }
 
