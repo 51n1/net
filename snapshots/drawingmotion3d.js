@@ -87,6 +87,7 @@ function mousePressed() {
 }
 
 function mouseDragged() {
+  if(!checkOnSketch(event)) exit;
   if( on == true && pointer < position.length ) {
     position[pointer][0] = mouseX - width*0.5;
     position[pointer][1] = mouseY - height*0.5;
@@ -99,6 +100,7 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
+  if(!checkOnSketch(event)) exit;
   if( on == true && pointer > 0 ) start3D();
 }
 
