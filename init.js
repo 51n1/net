@@ -134,7 +134,7 @@ function showElement(target,obj) {
   }
 }
 function checkOnCanvas(event) {
-  //console.log(event.target);
+  console.log(event.target);
   if (event.target.tagName == "canvas") return true;
   else return false;
 }
