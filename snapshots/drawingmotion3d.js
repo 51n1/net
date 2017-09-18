@@ -78,7 +78,7 @@ function draw() {
 }
 
 function mousePressed() {
-  if(!checkOnSketch()) return;
+  if(!checkOnSketch()) exit;
   if( pointer == 0 ) {
     on = true;
   } else if( pointer > 0 && touches.length > 1 ) {
