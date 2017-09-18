@@ -133,6 +133,10 @@ function showElement(target,obj) {
     $(obj).addClass("onbutton");
   }
 }
+function checkOnSketch(event) {
+  if (event.target.id == "controls") return false;
+  else return true;
+}
 
 function stopDefault(event) {
   if (event.target.tagName.toLowerCase() == "a") {return;}
