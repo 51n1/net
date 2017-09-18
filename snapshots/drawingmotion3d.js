@@ -48,7 +48,7 @@ function draw() {
     fill(255);
     var rms = analyzer.getLevel();
     rms = map(rms, 0, 1, 0, 10);
-    select("#p5help").html(hint2+"<br>"+rms);
+    //console.log(rms);
     //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
     beginShape();
     var addition = random(-rms, rms);
@@ -91,7 +91,7 @@ function mouseDragged() {
     position[pointer][1] = mouseY - height*0.5;
     position[pointer][2] = 0;
     pointer++;
-    select("#p5help").html(pointer);
+    //console.log(pointer);
   } else {
     if( on == true ) start3D();
   }
@@ -124,4 +124,5 @@ function start3D() {
   select("#p5help").html(hint2);
   if(soundFlagMain && !mysound.isPlaying()) mysound.play();
   soundFlagSub = true;
+  select("#p5help").html(hint2);
 }
