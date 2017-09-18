@@ -78,32 +78,32 @@ function draw() {
 }
 
 function mousePressed() {
-  if(checkOnSketch(event)) {
-  if( pointer == 0 ) {
-    on = true;
-  } else if( pointer > 0 && touches.length > 1 ) {
-    initSketch();
-  }
+  if(checkOnCanvas(event)) {
+    if( pointer == 0 ) {
+      on = true;
+    } else if( pointer > 0 && touches.length > 1 ) {
+      initSketch();
+    }
   }
 }
 
 function mouseDragged() {
-  if(checkOnSketch(event)) {
-  if( on == true && pointer < position.length ) {
-    position[pointer][0] = mouseX - width*0.5;
-    position[pointer][1] = mouseY - height*0.5;
-    position[pointer][2] = 0;
-    pointer++;
-    select("#p5help").html(pointer);
-  } else {
-    if( on == true ) start3D();
-  }
+  if(checkOnCanvas(event)) {
+    if( on == true && pointer < position.length ) {
+      position[pointer][0] = mouseX - width*0.5;
+      position[pointer][1] = mouseY - height*0.5;
+      position[pointer][2] = 0;
+      pointer++;
+      select("#p5help").html(pointer);
+    } else {
+      if( on == true ) start3D();
+    }
   }
 }
 
 function mouseReleased() {
-  if(checkOnSketch(event)) {
-  if( on == true && pointer > 0 ) start3D();
+  if(checkOnCanvas(event)) {
+    if( on == true && pointer > 0 ) start3D();
   }
 }
 
