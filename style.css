@@ -118,7 +118,10 @@ a:hover {
   div#p5canvas {
     position: absolute;
   }
-  #p5_loading, #p5text {
+  #p5_loading {
     position: static;
+  }
+  #p5text {
+    position: absolute;
   }
 }
