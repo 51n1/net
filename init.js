@@ -15,13 +15,6 @@ $("#controls>a:eq(2)").on('click', function(){ // Code
   showElement('#codepanel',this);
 });
 $("#controls>a:eq(3)").on('click', function(){ // Help
-  // if($("#p5help").html() != "") {
-  //   if ($("#p5help").css("display") == "block") $("#p5help").css("display", "none");
-  //   else $("#p5help").css("display", "block");
-  //   $(this).toggleClass("onbutton");
-  // } else {
-  //   return false;
-  // }
   if (helpFlag == 1) showElement('#helppanel',this);
 });
 $("#controls>a:eq(4)").on('click', function(){ // Save
@@ -60,7 +53,7 @@ function initP5sketch(p5name){
   loadP5sketch(p5path);
 
   var nowsketch = $('#sketchlist>p>a[href*="'+p5name+'"]').html();
-  nowsketch = nowsketch + ' <i class="fa fa-hand-o-left" aria-hidden="true"></i>';
+  nowsketch = nowsketch + ' <i class="fa fa-arrow-left" aria-hidden="true"></i>';
   $('#sketchlist>p>a[href*="'+p5name+'"]').html(nowsketch);
 
   var codelink = "https://github.com/51n1/net/blob/master/" + p5path;
