@@ -2,11 +2,13 @@ var position; // float[][]
 var pointer; // int
 var amount; // float
 var on; // boolean
+var p5title = "Drawing + Motion + 2D";
 
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  select("#p5title").html("Drawing + Motion + 2D");
+  select("#p5title").html(p5title);
+  document.title = p5title + " - " + document.title;
   select("#p5help").html("Click and move on screen, then if release, drawn lines will be moving.");
   select("body").style("background-color", color(230));
   
