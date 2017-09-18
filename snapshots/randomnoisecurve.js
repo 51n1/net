@@ -9,7 +9,9 @@ var imgsize;
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  select("#p5title").html("Comparison of Randomness by Line Drawings");
+  var p5title = "Comparison of Randomness by Line Drawings";
+  document.title = p5title + " - " + document.title;
+  select("#p5title").html(p5title);
   select("body").style("background-color", color(255));
   
   imgsize = width*0.33;
