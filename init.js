@@ -25,10 +25,14 @@ $("#controls>a:eq(3)").on('click', function(){ // Help
   if (helpFlag == 1) showElement('#helppanel',this);
 });
 $("#controls>a:eq(4)").on('click', function(){ // Save
-  var context = canvas.getContext("experimental-webgl", {preserveDrawingBuffer: true});
-  var now = new Date();
-  var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
-  saveCanvas('sketch_'+now_str,'png');
+  
+  //var now = new Date();
+  //var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
+  //saveCanvas('sketch_'+now_str,'png');
+  
+  var context = $('#p5canvas>canvas').getContext("experimental-webgl", {preserveDrawingBuffer: true});
+  var url = $('#p5canvas>canvas').toDataURL('image/png');
+  window.open(url, 'save');
 });
 $("#controls>a:eq(5)").on('click', function(){ // Sound
   if( typeof(mysound) != "undefined" ) {
