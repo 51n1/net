@@ -25,6 +25,7 @@ $("#controls>a:eq(3)").on('click', function(){ // Help
   if (helpFlag == 1) showElement('#helppanel',this);
 });
 $("#controls>a:eq(4)").on('click', function(){ // Save
+  var context = canvas.getContext("experimental-webgl", {preserveDrawingBuffer: true});
   var now = new Date();
   var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
