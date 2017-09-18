@@ -3,7 +3,7 @@ var pointer; // int
 var amount; // float
 var zdepth; // float
 var on; // boolean
-var title = "Drawing + Motion + 3D + Audio";
+var p5title = "Drawing + Motion + 3D + Audio";
 var hint1 = "Keep dragging on screen, and then if release, drawn lines will start moving with sound. Sound on with button of menu bar.";
 var hint2 = "You can turn a drawing object by sliding your mouse or finger. If make new one, push spacebar key or touch with two fingers.";
 var mysound, analyzer;
@@ -16,8 +16,8 @@ function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
   select("body").style("background-color", color(10));
-  select("#p5title").html(title);
-  document.title = title + " - " + document.title;
+  select("#p5title").html(p5title);
+  document.title = p5title + " - " + document.title;
   select("#p5help").html(hint1);
 
   position = new Array(500);
