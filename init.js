@@ -33,7 +33,7 @@ $("#controls>a:eq(4)").on('click', function(){ // Save
   //var context = $('#p5canvas>canvas').getContext("experimental-webgl", {preserveDrawingBuffer: true});
   //var url = $('#p5canvas>canvas').toDataURL('image/png');
   
-  document.getElementById('defaultCanvas0').getContext("webgl", {preserveDrawingBuffer: true});
+  document.getElementById('defaultCanvas0').getContext("experimental-webgl", {preserveDrawingBuffer: true});
   var url = document.getElementById('defaultCanvas0').toDataURL('image/png');
   window.open(url, 'save');
 });
