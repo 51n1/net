@@ -8,7 +8,7 @@ var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your
 var mysound, analyzer;
 
 function preload() {
-  mysound = loadSound('./sounds/20170915.wav');
+  mysound = loadSound('./sounds/20170924.wav');
 }
 
 function setup() {
