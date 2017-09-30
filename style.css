@@ -67,6 +67,9 @@ a:hover {
 #infopanel, #sketchlist, #codepanel, #helppanel {
   /* border-top: 1px solid #666; */
 }
+#infopanel>p {
+  padding: 0 5px;
+}
 #sketchlist * {
   text-align: right;
 }
