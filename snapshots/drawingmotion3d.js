@@ -19,7 +19,7 @@ function setup() {
   select("#p5title").html(p5title);
   select("body").style("background-color", color(10));
   select("#p5help").html(hint1);
-  select("#p5text").html("Draw a line and turn on sound !");
+  select("#p5text").html("Draw a line and turn on sound !!");
   select("#p5text").style("color", color(255));
 
   position = new Array(500);
