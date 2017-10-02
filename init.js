@@ -63,6 +63,20 @@ $("#controls>a:eq(4)").on('click', function(){ // Sound Button
     return false;
   }
 });
+$("#controls>a:eq(5)").on('click', function(){ // Tool Bar Open Button
+  if ($("#controls>a:eq(0)").css("display") == "block") { // Hide Tool Bar
+    $("#infopanel,#codepanel,#helppanel,#sketchlist").css("display", "none");
+    $("#sidebar").css("width", "min-content");
+    $(this).html("<i class='fa fa-chevron-right' aria-hidden='true'></i>");
+    $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(6)").removeClass("onbutton");
+  } else { // Show Tool Bar
+    if ( windowWidth > 480 ) $("#sidebar").css("width", "350px");
+    else $("#sidebar").css("width", "100%");
+    $(this).html("<i class='fa fa-chevron-left' aria-hidden='true'></i>");
+  }
+  $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(3),#controls>a:eq(4),#controls>a:eq(6)").toggleClass("ondisplay");
+
+});
 $("#controls>a:eq(6)").on('click', function(){ // Sketch List Button
   showElement('#sketchlist',this);
 });
@@ -128,14 +142,8 @@ function showElement(target,obj) {
     $(target).css("display", "none");
     $(obj).removeClass("onbutton");
   } else {
-    $("#infopanel").css("display", "none");
-    $("#codepanel").css("display", "none");
-    $("#sketchlist").css("display", "none");
-    $("#helppanel").css("display", "none");
-    $("#controls>a:eq(0)").removeClass("onbutton");
-    $("#controls>a:eq(1)").removeClass("onbutton");
-    $("#controls>a:eq(2)").removeClass("onbutton");
-    $("#controls>a:eq(6)").removeClass("onbutton");
+    $("#infopanel,#codepanel,#helppanel,#sketchlist").css("display", "none");
+    $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(6)").removeClass("onbutton");
     $(target).css("display", "block");
     $(obj).addClass("onbutton");
   }
