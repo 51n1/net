@@ -56,11 +56,11 @@ a:hover {
   -moz-border-radius: 3px; /* Firefox */
 }
 #controls>a:nth-child(6),#controls>a:nth-child(7) {
-  float: right;
+  /*float: right;*/
 }
 #controls>a:nth-child(6) {
   display: inline-block;
-  background-color: rgba(15, 15, 15, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
 #controls>a.onbutton {
