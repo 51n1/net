@@ -28,7 +28,7 @@ a:hover {
 }
 #sidebar {
   position: fixed;
-  width: auto; /* 350px */
+  width: auto; /* change to <350px> at open tool bar*/
 }
 #controls {
   width: 100%;
@@ -40,7 +40,7 @@ a:hover {
   -moz-border-radius: 5px; /* Firefox */
 }
 #controls>a {
-  display: none;/* inline-block */
+  display: none; /* change to <inline-block> at open tool bar*/
   float: left;
   margin: 2px;
   padding: 3px 5px;
@@ -51,10 +51,10 @@ a:hover {
   -moz-border-radius: 3px; /* Firefox */
 }
 #controls>a:nth-child(6),#controls>a:nth-child(7) {
-  /*float: right;*/
+  float: right;
 }
 #controls>a:nth-child(6) {
-  display: inline-block;/**/
+  display: inline-block;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
