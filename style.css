@@ -41,8 +41,8 @@ a:hover {
   -moz-border-radius: 5px; /* Firefox */
 }
 #controls>a {
-  /*display: inline-block;*/
-  display: none;
+  display: inline-block;
+  /*display: none;*/
   float: left;
   margin: 2px;
   padding: 3px 5px;
@@ -55,8 +55,8 @@ a:hover {
 #controls>a:nth-child(6),#controls>a:nth-child(7) {
   /*float: right;*/
 }
-#controls>a:nth-child(6) {
-  display: inline-block;
+#controls>a:nth-child(7) {
+  /*display: inline-block;*/
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
