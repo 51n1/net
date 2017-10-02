@@ -29,7 +29,8 @@ a:hover {
 #sidebar {
   position: fixed;
   /*float: left;*/
-  width: 350px;
+  /*width: 350px;*/
+  width: auto;
 }
 #controls {
   width: 100%;
