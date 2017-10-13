@@ -1,6 +1,7 @@
 /* update 1 Oct 2017 */
 var xmlHttp;
 var helpFlag = 0;
+var soundFlag = 0;
 var soundFlagMain = false;
 var soundFlagSub = false;
 
@@ -17,6 +18,7 @@ $(window).on('load', function(){
   }
   p5name = get["p5"];
   helpFlag = get["h"];
+  soundFlag = get["s"];
   var p5path = "snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
 
@@ -29,6 +31,7 @@ $(window).on('load', function(){
 
   //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nonactive");
   if(helpFlag == 0) $("#controls>a:eq(2)").addClass("nonactive");
+  if(soundFlag == 0) $("#controls>a:eq(4)").addClass("nonactive");
 
 });
 
@@ -48,34 +51,34 @@ $("#controls>a:eq(3)").on('click', function(){ // Save Button
   saveCanvas('sketch_'+now_str,'png');
 });
 $("#controls>a:eq(4)").on('click', function(){ // Sound Button
-  if( typeof(mysound) != "undefined" ) {
-    if( soundFlagMain ) {
-      if(mysound.isPlaying()) mysound.stop();
-      soundFlagMain = false;
-      $(this).html('<i class="fa fa-volume-off" aria-hidden="true"></i> Off');
-    } else {
-      if(soundFlagSub && !mysound.isPlaying()) mysound.play();
-      soundFlagMain = true;
-      $(this).html('<i class="fa fa-volume-up" aria-hidden="true"></i> On');
-    }
-    $(this).toggleClass("onbutton");
-  } else {
-    return false;
-  }
+  if (soundFlag == 1) showElement('#soundpanel',this);
+  // if( typeof(mysound) != "undefined" ) {
+  //   if( soundFlagMain ) {
+  //     if(mysound.isPlaying()) mysound.stop();
+  //     soundFlagMain = false;
+  //     $(this).html('<i class="fa fa-volume-off" aria-hidden="true"></i> Off');
+  //   } else {
+  //     if(soundFlagSub && !mysound.isPlaying()) mysound.play();
+  //     soundFlagMain = true;
+  //     $(this).html('<i class="fa fa-volume-up" aria-hidden="true"></i> On');
+  //   }
+  //   $(this).toggleClass("onbutton");
+  // } else {
+  //   return false;
+  // }
 });
 $("#controls>a:eq(5)").on('click', function(){ // Tool Bar Open Button
   if ($("#controls>a:eq(0)").css("display") == "block") { // Hide Tool Bar
-    $("#infopanel,#codepanel,#helppanel,#sketchlist").css("display", "none");
+    $("#infopanel,#codepanel,#helppanel,#sketchlist,#soundpanel").css("display", "none");
     $("#sidebar").css("width", "min-content");
     $(this).html("<i class='fa fa-chevron-right' aria-hidden='true'></i>");
-    $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(6)").removeClass("onbutton");
+    $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(4),#controls>a:eq(6)").removeClass("onbutton");
   } else { // Show Tool Bar
     if ( windowWidth > 480 ) $("#sidebar").css("width", "350px");
     else $("#sidebar").css("width", "100%");
     $(this).html("<i class='fa fa-chevron-left' aria-hidden='true'></i>");
   }
   $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(3),#controls>a:eq(4),#controls>a:eq(6)").toggleClass("ondisplay");
-
 });
 $("#controls>a:eq(6)").on('click', function(){ // Sketch List Button
   showElement('#sketchlist',this);
@@ -111,9 +114,9 @@ function checkStatus(){
     document.body.appendChild(userScript);
 
     // mysound is loaded after p5.js sketch loaded
-    if( typeof(mysound) == "undefined" ) {
-      $("#controls>a:eq(4)").addClass("nonactive");
-    }
+    //if( typeof(mysound) == "undefined" ) {
+    //  $("#controls>a:eq(4)").addClass("nonactive");
+    //}
   }
 }
 
@@ -142,8 +145,8 @@ function showElement(target,obj) {
     $(target).css("display", "none");
     $(obj).removeClass("onbutton");
   } else {
-    $("#infopanel,#codepanel,#helppanel,#sketchlist").css("display", "none");
-    $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(6)").removeClass("onbutton");
+    $("#infopanel,#codepanel,#helppanel,#soundpanel,#sketchlist").css("display", "none");
+    $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(4),#controls>a:eq(6)").removeClass("onbutton");
     $(target).css("display", "block");
     $(obj).addClass("onbutton");
   }

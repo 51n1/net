@@ -5,11 +5,12 @@ var zdepth; // float
 var on; // boolean
 var hint1 = "<h2>1st Step</h2><p>Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.</p>";
 var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.</p>";
-var mysound, analyzer;
+var mysound;
+var analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
 
-function preload() {
-  mysound = loadSound('./sounds/20170924.wav');
-}
+//function preload() {
+//  mysound = loadSound('./sounds/20170924.wav');
+//}
 
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -31,11 +32,11 @@ function setup() {
   zdepth = 1.5;
   on = false;
 
-  analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
-  analyzer.setInput(mysound); // Patch the input to an volume analyzer
+  //analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
+  //analyzer.setInput(mysound); // Patch the input to an volume analyzer
   //mysound.play();
-  mysound.loop();
-  mysound.stop();
+  //mysound.loop();
+  //mysound.stop();
   //mysound.setVolume(0.1);
 }
 
@@ -115,8 +116,8 @@ function initSketch() {
   pointer = 0;
   on = false;
   select("#p5help").html(hint1);
-  if(mysound.isPlaying()) mysound.stop();
-  soundFlagSub = false;
+  //if(mysound.isPlaying()) mysound.stop();
+  //soundFlagSub = false;
 }
 
 function start3D() {
@@ -125,7 +126,7 @@ function start3D() {
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);
-  if(soundFlagMain && !mysound.isPlaying()) mysound.play();
-  soundFlagSub = true;
-  select("#p5help").html(hint2);
+  //if(soundFlagMain && !mysound.isPlaying()) mysound.play();
+  //soundFlagSub = true;
+  //select("#p5help").html(hint2);
 }
