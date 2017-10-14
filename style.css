@@ -79,6 +79,25 @@ a:hover {
 #sketchlist * {
   text-align: right;
 }
+#soundpanel>p {
+  margin-top: 7px;
+}
+#soundpanel>p>a {
+  padding: 3px 5px;
+  border: 1px solid black;
+  border-radius: 3px; /* CSS3 */
+  -webkit-border-radius: 3px; /* Safari, Google Chrome */
+  -moz-border-radius: 3px; /* Firefox */
+}
+#soundpanel>p>a:hover {
+  border-color: #555;
+}
+#soundpanel>p>a.onloading {
+  color: #999;
+  border-color: #999;
+  /*background-color: rgba(240, 240, 240, 0.5);*/
+  cursor: default;
+}
 #p5canvas {
   position: fixed;
   width: 100%;

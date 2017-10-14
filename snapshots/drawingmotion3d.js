@@ -6,7 +6,7 @@ var on; // boolean
 var hint1 = "<h2>1st Step</h2><p>Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.</p>";
 var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.</p>";
 var mysound;
-var analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
+var analyzer;
 
 //function preload() {
 //  mysound = loadSound('./sounds/20170924.wav');
@@ -20,7 +20,7 @@ function setup() {
   select("#p5title").html(p5title);
   select("body").style("background-color", color(10));
   select("#p5help").html(hint1);
-  select("#p5text").html("Draw a line and turn on sound !!");
+  select("#p5text").html("Draw a line and select sound !!");
   select("#p5text").style("color", color(255));
 
   position = new Array(500);
@@ -116,8 +116,6 @@ function initSketch() {
   pointer = 0;
   on = false;
   select("#p5help").html(hint1);
-  //if(mysound.isPlaying()) mysound.stop();
-  //soundFlagSub = false;
 }
 
 function start3D() {
@@ -126,7 +124,4 @@ function start3D() {
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);
-  //if(soundFlagMain && !mysound.isPlaying()) mysound.play();
-  //soundFlagSub = true;
-  //select("#p5help").html(hint2);
 }

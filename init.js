@@ -1,9 +1,11 @@
-/* update 1 Oct 2017 */
+/* update 15 Oct 2017 */
 var xmlHttp;
 var helpFlag = 0;
 var soundFlag = 0;
-var soundFlagMain = false;
-var soundFlagSub = false;
+var selectsound;
+var mysound;
+var analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
+var defaultsound = "./sounds/20170924.wav";
 
 /* Load Event  */
 $(window).on('load', function(){
@@ -52,20 +54,6 @@ $("#controls>a:eq(3)").on('click', function(){ // Save Button
 });
 $("#controls>a:eq(4)").on('click', function(){ // Sound Button
   if (soundFlag == 1) showElement('#soundpanel',this);
-  // if( typeof(mysound) != "undefined" ) {
-  //   if( soundFlagMain ) {
-  //     if(mysound.isPlaying()) mysound.stop();
-  //     soundFlagMain = false;
-  //     $(this).html('<i class="fa fa-volume-off" aria-hidden="true"></i> Off');
-  //   } else {
-  //     if(soundFlagSub && !mysound.isPlaying()) mysound.play();
-  //     soundFlagMain = true;
-  //     $(this).html('<i class="fa fa-volume-up" aria-hidden="true"></i> On');
-  //   }
-  //   $(this).toggleClass("onbutton");
-  // } else {
-  //   return false;
-  // }
 });
 $("#controls>a:eq(5)").on('click', function(){ // Tool Bar Open Button
   if ($("#controls>a:eq(0)").css("display") == "block") { // Hide Tool Bar
@@ -112,13 +100,62 @@ function checkStatus(){
     //userScript.src = p5path_;
     userScript.async = false;
     document.body.appendChild(userScript);
-
-    // mysound is loaded after p5.js sketch loaded
-    //if( typeof(mysound) == "undefined" ) {
-    //  $("#controls>a:eq(4)").addClass("nonactive");
-    //}
   }
 }
+
+// Function of Sound Player
+function initSound() {
+  mysound.loop();
+  mysound.stop();
+  analyzer.setInput(mysound);// Patch the input to an volume analyzer
+  $("#soundpanel>p>a:eq(0),#soundpanel>p>a:eq(1)").removeClass("onloading");
+  if ( selectsound.length > 15 ) selectsound = selectsound.substr(0, 15) + "...";
+  $('#soundname').html(selectsound);
+}
+function playSound() {
+  if ( mysound && !mysound.isPlaying() ) {
+    mysound.play();
+  } else if ( !mysound && defaultsound  ) {
+    console.log(defaultsound);
+    selectsound = defaultsound;
+    $('#soundname').html("Loading...");
+    $("#soundpanel>p>a:eq(0),#soundpanel>p>a:eq(1)").addClass("onloading");
+    mysound = loadSound(defaultsound, function() { initSound(); mysound.play(); });
+  }
+  $("#controls>a:eq(4)").html('<i class="fa fa-volume-up" aria-hidden="true"></i> Sound');
+}
+function stopSound() {
+  if( mysound && mysound.isPlaying() ) {
+    $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
+    mysound.stop();
+  }
+}
+function soundLoading() {
+  $('body').append('<p>Loading</p>');
+}
+// When change select input file, show file name to console.log.
+$("#inputfile").change(function(){
+  if (this.files.length > 0) {
+    // Get selected file object
+    var file = this.files[0];
+    selectsound = file.name;
+    $('#soundname').html("Loading...");
+    $("#soundpanel>p>a:eq(0),#soundpanel>p>a:eq(1)").addClass("onloading");
+    console.log(file.name);
+    // Ready of reading file
+    var reader = new FileReader();
+    // If success of reading file, use it as audio source.
+    reader.addEventListener('load', function(e) {
+      if(mysound) {
+        $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
+        mysound.disconnect();
+      }
+      mysound = loadSound(reader.result, initSound);
+    }, true);
+    // Get file data as Data URL format
+    reader.readAsDataURL(file);
+  }
+});
 
 function GetQueryString(str_) {
   var targetstr = typeof(str_) != "undefined" ? str_ : window.location.search;
