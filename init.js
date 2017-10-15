@@ -4,7 +4,8 @@ var helpFlag = 0;
 var soundFlag = 0;
 var selectsound;
 var mysound;
-var analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
+var analyzer;
+//var analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
 var defaultsound = "./sounds/20170924.wav";
 
 /* Load Event  */
@@ -124,6 +125,7 @@ function checkStatus(){
 function initSound() {
   mysound.loop();
   mysound.stop();
+  analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
   analyzer.setInput(mysound); // Patch the input to an volume analyzer
   $("#soundpanel>p>a:eq(0),#soundpanel>p>a:eq(1)").removeClass("onloading");
   if ( selectsound.length > 15 ) selectsound = selectsound.substr(0, 12) + "..." + selectsound.substr(-3);
@@ -166,8 +168,9 @@ $("#inputfile").change(function(){
     // If success of reading file, use it as audio source.
     reader.addEventListener('load', function(e) {
       if(mysound) {
-        $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
         mysound.disconnect();
+        $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
+        $("#soundpanel>p>a:eq(0)").html('<i class="fa fa-play" aria-hidden="true"></i> Play');
       }
       mysound = loadSound(reader.result, initSound);
     }, true);

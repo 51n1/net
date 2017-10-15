@@ -5,8 +5,8 @@ var zdepth; // float
 var on; // boolean
 var hint1 = "<h2>1st Step</h2><p>Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.</p>";
 var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.</p>";
-var mysound;
-var analyzer;
+//var mysound;
+//var analyzer;
 
 //function preload() {
 //  mysound = loadSound('./sounds/20170924.wav');
@@ -20,18 +20,25 @@ function setup() {
   select("#p5title").html(p5title);
   select("body").style("background-color", color(10));
   select("#p5help").html(hint1);
-  select("#p5text").html("Draw a line and select sound !!");
   select("#p5text").style("color", color(255));
 
   position = new Array(500);
-  for (var i = 0; i < position.length; i++) {
-    position[i] = new Array(3);
-  }
-  pointer = 0;
+  pointer = position.length;
   amount = 2.0;
   zdepth = 1.5;
   on = false;
-
+  var angle = 0;
+  var radius = 50;
+  for (var i = 0; i < position.length; i++) {
+    position[i] = new Array(3);
+    var x = radius * sin(radians(angle));
+    var y = radius * cos(radians(angle));
+    position[i][0] = x;
+    position[i][1] = y;
+    angle += 10;
+    radius += 1;
+  }
+  start3D();
   //analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
   //analyzer.setInput(mysound); // Patch the input to an volume analyzer
   //mysound.play();
@@ -50,7 +57,8 @@ function draw() {
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
     fill(255);
-    var rms = analyzer.getLevel();
+    if ( analyzer ) var rms = analyzer.getLevel();
+    else var rms = 0;
     rms = map(rms, 0, 1, 0, 10);
     //console.log(rms);
     //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
@@ -116,6 +124,7 @@ function initSketch() {
   pointer = 0;
   on = false;
   select("#p5help").html(hint1);
+  select("#p5text").html("Draw a line !!");
 }
 
 function start3D() {
@@ -124,4 +133,5 @@ function start3D() {
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);
+  select("#p5text").html("Select & play sound !!");
 }
