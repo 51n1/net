@@ -93,8 +93,8 @@ a:hover {
   border-color: #555;
 }
 #soundpanel>p>a.onloading {
-  color: #999;
-  border-color: #999;
+  color: #555;
+  border-color: #555;
   /*background-color: rgba(240, 240, 240, 0.5);*/
   cursor: default;
 }

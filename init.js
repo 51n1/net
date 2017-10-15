@@ -37,7 +37,7 @@ $(window).on('load', function(){
 
 });
 
-/* Click Event */
+/* Main Controls Click Event */
 $("#controls>a:eq(0)").on('click', function(){ // Info Button
   showElement('#infopanel',this);
 });
@@ -72,7 +72,24 @@ $("#controls>a:eq(6)").on('click', function(){ // Sketch List Button
   showElement('#sketchlist',this);
 });
 
-// Load p5.js Sketch
+/* Sound Controls Click Event */
+$("#soundpanel>p>a:eq(0)").on('click', function(){ // Sound Play & Pause Button
+  if( mysound && mysound.isPlaying() ) {
+    mysound.pause();
+    $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
+    $("#soundpanel>p>a:eq(0)").html('<i class="fa fa-play" aria-hidden="true"></i> Play');
+  } else {
+    playSound();
+  }
+});
+$("#soundpanel>p>a:eq(1)").on('click', function(){ // Sound Stop Button
+  stopSound();
+});
+$("#soundpanel>p>a:eq(2)").on('click', function(){ // Sound Select Button
+  $('#inputfile').click();
+});
+
+/* Load p5.js Sketch */
 function loadP5sketch(p5path_) {
   if (p5path_) {
     if (window.XMLHttpRequest){
@@ -107,9 +124,9 @@ function checkStatus(){
 function initSound() {
   mysound.loop();
   mysound.stop();
-  analyzer.setInput(mysound);// Patch the input to an volume analyzer
+  analyzer.setInput(mysound); // Patch the input to an volume analyzer
   $("#soundpanel>p>a:eq(0),#soundpanel>p>a:eq(1)").removeClass("onloading");
-  if ( selectsound.length > 15 ) selectsound = selectsound.substr(0, 15) + "...";
+  if ( selectsound.length > 15 ) selectsound = selectsound.substr(0, 12) + "..." + selectsound.substr(-3);
   $('#soundname').html(selectsound);
 }
 function playSound() {
@@ -123,11 +140,13 @@ function playSound() {
     mysound = loadSound(defaultsound, function() { initSound(); mysound.play(); });
   }
   $("#controls>a:eq(4)").html('<i class="fa fa-volume-up" aria-hidden="true"></i> Sound');
+  $("#soundpanel>p>a:eq(0)").html('<i class="fa fa-pause" aria-hidden="true"></i> Pause');
 }
 function stopSound() {
   if( mysound && mysound.isPlaying() ) {
-    $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
     mysound.stop();
+    $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
+    $("#soundpanel>p>a:eq(0)").html('<i class="fa fa-play" aria-hidden="true"></i> Play');
   }
 }
 function soundLoading() {
