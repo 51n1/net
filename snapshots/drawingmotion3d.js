@@ -82,6 +82,7 @@ function draw() {
   } else { // During Memory
     camera(0, 0, pointer*zdepth*0.1); // Z-axis
     fill(0,255,255);
+    strokeWeight(2);
     beginShape();
     for(var i = 0; i < pointer; i++) {
       vertex(position[i][0], position[i][1], 0);
