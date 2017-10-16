@@ -57,6 +57,7 @@ function draw() {
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
     fill(255);
+    strokeWeight(2);
     if ( analyzer ) var rms = analyzer.getLevel();
     else var rms = 0;
     rms = map(rms, 0, 1, 0, 10);
