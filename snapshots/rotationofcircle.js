@@ -4,9 +4,9 @@ let rotation;
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  let p5title = "Rotation of Circle";
-  document.title = p5title + " - " + document.title;
-  select("#p5title").html(p5title);
+  let title = "Rotation of Circle";
+  document.title = title + " - " + document.title;
+  select("#p5title").html(title);
   select("body").style("background-color", color(255));
 
   radius = width > height ? height*0.4 : width*0.4;

@@ -15,9 +15,9 @@ var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
-  var p5title = "Drawing + Motion + 3D + Audio";
-  document.title = p5title + " - " + document.title;
-  select("#p5title").html(p5title);
+  var title = "Drawing + Motion + 3D + Audio";
+  document.title = title + " - " + document.title;
+  select("#p5title").html(title);
   select("body").style("background-color", color(10));
   select("#p5help").html(hint1);
   select("#p5text").style("color", color(255));
