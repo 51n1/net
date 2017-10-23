@@ -1,12 +1,12 @@
-var x, y;
-var speed;
-var angle;
-var maxSpeed = 5;
+let x, y;
+let speed;
+let angle;
+let maxSpeed = 5;
 
 function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  var p5title = "Twisted Tube";
+  let p5title = "Twisted Tube";
   document.title = p5title + " - " + document.title;
   select("#p5title").html(p5title);
   select("body").style("background-color", color(255));
@@ -24,12 +24,12 @@ function setup() {
 }
 
 function draw() {
-  var acc = (mouseY - (height/2));
+  let acc = (mouseY - (height/2));
   speed += acc * 0.01;
   if(speed < -maxSpeed) speed = -maxSpeed;
   if(speed > maxSpeed) speed = maxSpeed;
 
-  var ang = ((width/2) - mouseX);
+  let ang = ((width/2) - mouseX);
   angle += ang * 0.05;
 
   x += speed * sin(radians(angle));

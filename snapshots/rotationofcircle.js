@@ -1,14 +1,14 @@
-var radius;
-var rotation;
+let radius;
+let rotation;
 
 function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  var p5title = "Rotation of Circle";
+  let p5title = "Rotation of Circle";
   document.title = p5title + " - " + document.title;
   select("#p5title").html(p5title);
   select("body").style("background-color", color(255));
-  
+
   radius = width > height ? height*0.4 : width*0.4;
   rotation = 0;
 }
@@ -16,10 +16,10 @@ function setup() {
 function draw() {
   background(255);
   beginShape();
-  for(var i = 0; i < 360; i += 10) {
-    var angle = i - rotation;
-    var x = width*0.5 + radius * sin(radians(angle));
-    var y = height*0.5 + radius * cos(radians(angle));
+  for(let i = 0; i < 360; i += 10) {
+    let angle = i - rotation;
+    let x = width*0.5 + radius * sin(radians(angle));
+    let y = height*0.5 + radius * cos(radians(angle));
 
     stroke(0);
     noFill();
