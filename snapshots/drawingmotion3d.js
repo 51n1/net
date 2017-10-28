@@ -1,21 +1,21 @@
-var position; // float[][]
-var pointer; // int
-var amount; // float
-var zdepth; // float
-var on; // boolean
-var hint1 = "<h2>1st Step</h2><p>Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.</p>";
-var hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.</p>";
-//var mysound;
-//var analyzer;
+let position; // float[][]
+let pointer; // int
+let amount; // float
+let zdepth; // float
+let on; // boolean
+let hint1 = "<h2>1st Step</h2><p>Keep dragging on screen and then if release, the drawn lines will start moving with sound. If muted sound, please turn on sound button of menu bar.</p>";
+let hint2 = "<h2>2nd Step</h2><p>You can rotate a drawing object by sliding your mouse or finger. If make new one, push space bar or touch with two fingers.</p>";
+//let mysound;
+//let analyzer;
 
 //function preload() {
 //  mysound = loadSound('./sounds/20170924.wav');
 //}
 
 function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent("p5canvas");
-  var title = "Drawing + Motion + 3D + Audio";
+  let title = "Drawing + Motion + 3D + Audio";
   document.title = title + " - " + document.title;
   select("#p5title").html(title);
   select("body").style("background-color", color(10));
@@ -27,12 +27,12 @@ function setup() {
   amount = 2.0;
   zdepth = 1.5;
   on = false;
-  var angle = 0;
-  var radius = 50;
-  for (var i = 0; i < position.length; i++) {
+  let angle = 0;
+  let radius = 50;
+  for (let i = 0; i < position.length; i++) {
     position[i] = new Array(3);
-    var x = radius * sin(radians(angle));
-    var y = radius * cos(radians(angle));
+    let x = radius * sin(radians(angle));
+    let y = radius * cos(radians(angle));
     position[i][0] = x;
     position[i][1] = y;
     angle += 10;
@@ -45,44 +45,47 @@ function setup() {
   //mysound.loop();
   //mysound.stop();
   //mysound.setVolume(0.1);
+  noFill();
 }
 
 function draw() {
   background(10);
 
   if((on == false) && (pointer > 0)) { // After Memory
-    camera(0, 0, pointer*zdepth*1);
+    //camera(0, 0, pointer*zdepth*1, 0, 0, 0, 0, 1, 0);
+    camera(0, 0, 1000, 0, 0, 0, 0, 1, 0);
     //orbitControl();
     rotateX(radians(map(mouseY, -height*0.5, height*0.5, 0, 360)));
     rotateY(radians(map(mouseX, -width*0.5, width*0.5, 0, 360)));
     rotateZ(frameCount*0.005);
-    fill(255);
-    if ( analyzer ) var rms = analyzer.getLevel();
-    else var rms = 0;
+    stroke(255);
+    let rms;
+    if ( analyzer ) rms = analyzer.getLevel();
+    else rms = 0;
     rms = map(rms, 0, 1, 0, 10);
     //console.log(rms);
     //rms = random(1) > 0.5 ? rms*-1 : rms*+1;
     beginShape();
-    var addition = random(-rms, rms);
-    for(var i = 0; i < pointer; i++) {
+    let addition = random(-rms, rms);
+    for(let i = 0; i < pointer-1; i++) {
       //position[i][0] += map(noise(offset), 0, 1, -5, 5);
       //position[i][1] += map(noise(offset), 0, 1, -5, 5);
       //position[i][2] += map(noise(offset), 0, 1, -5, 5);
       position[i][0] += random(-rms*amount, rms*amount);
       position[i][1] += random(-rms*amount, rms*amount);
       position[i][2] += random(-rms*amount, rms*amount);
-      var newx = position[i][0] + addition*2;
-      var newy = position[i][1] + addition*2;
-      var newz = position[i][2] + addition*2;
+      let newx = position[i][0] + addition*2;
+      let newy = position[i][1] + addition*2;
+      let newz = position[i][2] + addition*2;
       vertex(position[i][0], position[i][1], position[i][2]);
       vertex(newx, newy, newz);
     }
     endShape();
   } else { // During Memory
-    camera(0, 0, pointer*zdepth*0.1); // Z-axis
-    fill(0,255,255);
+    camera(0, 0, pointer*zdepth*0.5+500, 0, 0, 0, 0, 1, 0); // Z-axis
+    stroke(0,255,255);
     beginShape();
-    for(var i = 0; i < pointer; i++) {
+    for(let i = 0; i < pointer; i++) {
       vertex(position[i][0], position[i][1], 0);
     }
     endShape();
@@ -129,7 +132,7 @@ function initSketch() {
 
 function start3D() {
   on = false;
-  for (var i=0; i<pointer; i++){
+  for (let i=0; i<pointer; i++){
     position[i][2] = pointer*zdepth*0.5 - i*zdepth;
   }
   select("#p5help").html(hint2);

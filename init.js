@@ -1,35 +1,32 @@
-/* update 15 Oct 2017 */
-var xmlHttp;
-var helpFlag = 0;
-var soundFlag = 0;
-var selectsound;
-var mysound;
-var analyzer;
-//var analyzer = new p5.Amplitude(); // create a new Amplitude analyzer
-var defaultsound = "./sounds/20170924.wav";
+/* update 28 Oct 2017 */
+let xmlHttp;
+let helpFlag = 0;
+let soundFlag = 0;
+let selectsound;
+let mysound;
+let analyzer;
+let defaultsound = "./sounds/20170924.wav";
 
 /* Load Event  */
 $(window).on('load', function(){
   // Initialize
-  var p5name;
-  var get = GetQueryString();
-  if (!get["p5"]) {
-    var randnum = Math.floor( Math.random() * $("#sketchlist a").length );
-    var p5href = $("#sketchlist a:eq("+randnum+")").attr('href');
-    var get = GetQueryString(p5href);
-    //alert(get["p5"]);
+  let get = GetQueryString();
+  if ( !get["p5"] ) {
+    let randnum = Math.floor( Math.random() * $("#sketchlist a").length );
+    let p5href = $("#sketchlist a:eq("+randnum+")").attr('href');
+    get = GetQueryString(p5href);
   }
-  p5name = get["p5"];
+  let p5name = get["p5"];
   helpFlag = get["h"];
   soundFlag = get["s"];
-  var p5path = "snapshots/" + p5name + ".js";
+  let p5path = "snapshots/" + p5name + ".js";
   loadP5sketch(p5path);
 
-  var nowsketch = $('#sketchlist a[href*="'+p5name+'"]').html();
+  let nowsketch = $('#sketchlist a[href*="'+p5name+'"]').html();
   nowsketch = nowsketch + ' <i class="fa fa-arrow-left" aria-hidden="true"></i>';
   $('#sketchlist a[href*="'+p5name+'"]').html(nowsketch);
 
-  var codelink = "https://github.com/51n1/net/blob/master/" + p5path;
+  let codelink = "https://github.com/51n1/net/blob/master/" + p5path;
   $('#codepanel>p>a').attr('href', codelink);
 
   //if($("#p5help").html() == "") $("#controls>a:eq(3)").addClass("nonactive");
@@ -38,25 +35,31 @@ $(window).on('load', function(){
 
 });
 
-/* Main Controls Click Event */
-$("#controls>a:eq(0)").on('click', function(){ // Info Button
+/* Main Controls: Click Event Function */
+// Info Button
+$("#controls>a:eq(0)").on('click', function(){
   showElement('#infopanel',this);
 });
-$("#controls>a:eq(1)").on('click', function(){ // Code Button
+// Code Button
+$("#controls>a:eq(1)").on('click', function(){
   showElement('#codepanel',this);
 });
-$("#controls>a:eq(2)").on('click', function(){ // Help Button
+// Help Button
+$("#controls>a:eq(2)").on('click', function(){
   if (helpFlag == 1) showElement('#helppanel',this);
 });
-$("#controls>a:eq(3)").on('click', function(){ // Save Button
-  var now = new Date();
-  var now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
+// Save Button
+$("#controls>a:eq(3)").on('click', function(){
+  let now = new Date();
+  let now_str = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'-'+now.getHours()+'-'+now.getMinutes()+'-'+now.getSeconds();
   saveCanvas('sketch_'+now_str,'png');
 });
-$("#controls>a:eq(4)").on('click', function(){ // Sound Button
+// Sound Button
+$("#controls>a:eq(4)").on('click', function(){
   if (soundFlag == 1) showElement('#soundpanel',this);
 });
-$("#controls>a:eq(5)").on('click', function(){ // Tool Bar Open Button
+// Tool Bar Open Button
+$("#controls>a:eq(5)").on('click', function(){
   if ($("#controls>a:eq(0)").css("display") == "block") { // Hide Tool Bar
     $("#infopanel,#codepanel,#helppanel,#sketchlist,#soundpanel").css("display", "none");
     $("#sidebar").css("width", "min-content");
@@ -69,12 +72,14 @@ $("#controls>a:eq(5)").on('click', function(){ // Tool Bar Open Button
   }
   $("#controls>a:eq(0),#controls>a:eq(1),#controls>a:eq(2),#controls>a:eq(3),#controls>a:eq(4),#controls>a:eq(6)").toggleClass("ondisplay");
 });
-$("#controls>a:eq(6)").on('click', function(){ // Sketch List Button
+// Sketch List Button
+$("#controls>a:eq(6)").on('click', function(){
   showElement('#sketchlist',this);
 });
 
-/* Sound Controls Click Event */
-$("#soundpanel>p>a:eq(0)").on('click', function(){ // Sound Play & Pause Button
+/* Sound Controls: Click Event Function */
+// Sound Play & Pause Button
+$("#soundpanel>p>a:eq(0)").on('click', function(){
   if( mysound && mysound.isPlaying() ) {
     mysound.pause();
     $("#controls>a:eq(4)").html('<i class="fa fa-volume-off" aria-hidden="true"></i> Sound');
@@ -83,10 +88,12 @@ $("#soundpanel>p>a:eq(0)").on('click', function(){ // Sound Play & Pause Button
     playSound();
   }
 });
-$("#soundpanel>p>a:eq(1)").on('click', function(){ // Sound Stop Button
+// Sound Stop Button
+$("#soundpanel>p>a:eq(1)").on('click', function(){
   stopSound();
 });
-$("#soundpanel>p>a:eq(2)").on('click', function(){ // Sound Select Button
+// Sound Select Button
+$("#soundpanel>p>a:eq(2)").on('click', function(){
   $('#inputfile').click();
 });
 
@@ -110,9 +117,9 @@ function loadP5sketch(p5path_) {
 
 function checkStatus(){
   if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-    var sketchCode = xmlHttp.responseText;
+    let sketchCode = xmlHttp.responseText;
     if (sketchCode.indexOf('new p5()') === -1) sketchCode += '\nnew p5();';
-    var userScript = document.createElement('script');
+    let userScript = document.createElement('script');
     userScript.type = 'text/javascript';
     userScript.text = sketchCode;
     //userScript.src = p5path_;
@@ -151,20 +158,17 @@ function stopSound() {
     $("#soundpanel>p>a:eq(0)").html('<i class="fa fa-play" aria-hidden="true"></i> Play');
   }
 }
-function soundLoading() {
-  $('body').append('<p>Loading</p>');
-}
 // When change select input file, show file name to console.log.
 $("#inputfile").change(function(){
   if (this.files.length > 0) {
     // Get selected file object
-    var file = this.files[0];
+    let file = this.files[0];
     selectsound = file.name;
     $('#soundname').html("Loading...");
     $("#soundpanel>p>a:eq(0),#soundpanel>p>a:eq(1)").addClass("onloading");
     console.log(file.name);
     // Ready of reading file
-    var reader = new FileReader();
+    let reader = new FileReader();
     // If success of reading file, use it as audio source.
     reader.addEventListener('load', function(e) {
       if(mysound) {
@@ -180,15 +184,15 @@ $("#inputfile").change(function(){
 });
 
 function GetQueryString(str_) {
-  var targetstr = typeof(str_) != "undefined" ? str_ : window.location.search;
-  var result = {};
+  let targetstr = typeof(str_) != "undefined" ? str_ : window.location.search;
+  let result = {};
   if( 1 < targetstr.length ) {
-    var query = targetstr.substring(1);
-    var parameters = query.split('&');
-    for( var i = 0; i < parameters.length; i++ ) {
-      var element = parameters[i].split('=');
-      var paramName = decodeURIComponent(element[0]);
-      var paramValue = decodeURIComponent(element[1]);
+    let query = targetstr.substring(1);
+    let parameters = query.split('&');
+    for( let i = 0; i < parameters.length; i++ ) {
+      let element = parameters[i].split('=');
+      let paramName = decodeURIComponent(element[0]);
+      let paramValue = decodeURIComponent(element[1]);
       result[paramName] = paramValue;
     }
   }

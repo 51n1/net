@@ -1,19 +1,19 @@
-var position; // float[][]
-var pointer; // int
-var amount; // float
-var on; // boolean
+let position; // float[][]
+let pointer; // int
+let amount; // float
+let on; // boolean
 
 function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5canvas");
-  var title = "Drawing + Motion + 2D";
+  let title = "Drawing + Motion + 2D";
   document.title = title + " - " + document.title;
   select("#p5title").html(title);
   select("body").style("background-color", color(230));
   select("#p5help").html("<p>Click and move on screen, then if release, drawn lines will be moving.</p>");
 
   position = new Array(200);
-  for (var i = 0; i < 200; i++) {
+  for (let i = 0; i < 200; i++) {
     position[i] = new Array(2);
   }
   pointer = 0;
@@ -30,12 +30,12 @@ function draw() {
     noStroke();
     rect(0, 0, width, height);
     stroke(0);
-    for(var i = 0; i < pointer - 1; i++) {
+    for(let i = 0; i < pointer - 1; i++) {
       position[i][0] += random(-amount, amount);
       line(position[i][0], position[i][1], position[i+1][0], position[i+1][1]);
     }
   } else { // During Memory
-    for(var i = 0; i < pointer - 1; i++) {
+    for(let i = 0; i < pointer - 1; i++) {
       stroke(0, 0, 255);
       line(position[i][0], position[i][1], position[i+1][0], position[i+1][1]);
     }
