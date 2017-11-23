@@ -199,10 +199,6 @@ function GetQueryString(str_) {
   return result;
 }
 
-/*function touchMoved() {
-  if(!codeFlag) return false;
-}*/
-
 function showElement(target,obj) {
   if ($(target).css("display") == "block") {
     $(target).css("display", "none");
@@ -236,3 +232,12 @@ document.addEventListener("touchend", stopDefault, false);
 document.addEventListener("gesturestart", stopDefault, false);
 document.addEventListener("gesturechange", stopDefault, false);
 document.addEventListener("gestureend", stopDefault, false);
+
+// Function for p5.js
+/*function touchMoved() {
+  if(!codeFlag) return false;
+}*/
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
