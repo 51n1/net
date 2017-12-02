@@ -138,3 +138,7 @@ function start3D() {
   select("#p5help").html(hint2);
   select("#p5text").html("Select & play sound !!");
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}

@@ -9,13 +9,12 @@ function setup() {
   select("#p5title").html(title);
   select("body").style("background-color", color(255));
 
-  //radius = width > height ? height*0.4 : width*0.4;
+  radius = width > height ? height*0.4 : width*0.4;
   rotation = 0;
 }
 
 function draw() {
   background(255);
-  radius = width > height ? height*0.4 : width*0.4;
   beginShape();
   for(let i = 0; i < 360; i += 10) {
     let angle = i - rotation;
@@ -30,4 +29,9 @@ function draw() {
   }
   endShape(CLOSE);
   rotation += 0.5;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  radius = width > height ? height*0.4 : width*0.4;
 }

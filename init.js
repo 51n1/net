@@ -238,6 +238,6 @@ document.addEventListener("gestureend", stopDefault, false);
   if(!codeFlag) return false;
 }*/
 
-function windowResized() {
+/*function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-}
+}*/

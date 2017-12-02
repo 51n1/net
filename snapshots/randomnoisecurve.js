@@ -69,6 +69,10 @@ class NoiseLine {
       this.ty[i] += 0.01;
     }
   }
+
+  resize(_s) {
+    this.s = _s;
+  }
 }
 
 class RandomLine {
@@ -101,4 +105,19 @@ class RandomLine {
       this.y[i] = constrain(this.y[i], 0, this.s);
     }
   }
+
+  resize(_s) {
+    this.s = _s;
+    for (let i = 0; i < this.cols + 1; i++) {
+      this.y[i] = this.s * 0.5;
+    }
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  background(255);
+  imgsize = width*0.33;
+  noiseline.resize(imgsize);
+  randomline.resize(imgsize);
 }
