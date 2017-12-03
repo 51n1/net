@@ -66,3 +66,7 @@ function mouseDragged() {
 function mouseReleased() {
   on = false;
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
