@@ -1,3 +1,4 @@
+/* update 5 May 2018 */
 /* update 28 Oct 2017 */
 let xmlHttp;
 let helpFlag = 0;
@@ -225,13 +226,13 @@ function stopDefault(event) {
   event.preventDefault();
 }
 
-document.addEventListener("touchstart", stopDefault, false);
-document.addEventListener("touchmove", stopDefault, false);
-document.addEventListener("touchend", stopDefault, false);
+document.addEventListener("touchstart", stopDefault, { passive: false });
+document.addEventListener("touchmove", stopDefault, { passive: false });
+document.addEventListener("touchend", stopDefault, { passive: false });
 
-document.addEventListener("gesturestart", stopDefault, false);
-document.addEventListener("gesturechange", stopDefault, false);
-document.addEventListener("gestureend", stopDefault, false);
+document.addEventListener("gesturestart", stopDefault, { passive: false });
+document.addEventListener("gesturechange", stopDefault, { passive: false });
+document.addEventListener("gestureend", stopDefault, { passive: false });
 
 // Function for p5.js
 /*function touchMoved() {
