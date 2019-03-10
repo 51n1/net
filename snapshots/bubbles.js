@@ -12,7 +12,7 @@ function setup() {
   select("body").style("background-color", color(255));
 
   let protection = 0;
-  while (bubbles.length < 300) {
+  while (bubbles.length < 150) {
     let r = random(10, 15);
     let bubble = new Bubble(r);
     let overlapping = false;
