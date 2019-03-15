@@ -9,7 +9,7 @@ function setup() {
   let title = "Bubbles";
   document.title = title + " - " + document.title;
   select("#p5title").html(title);
-  select("body").style("background-color", color(255));
+  select("body").style("background-color", color(160, 250, 255));
 
   let protection = 0;
   while (bubbles.length < 150) {
@@ -108,10 +108,6 @@ class Bubble {
     if (this.x + this.r > width) this.x = width - this.r;
     if (this.x - this.r < 0) this.x = this.r;
   }
-}
-
-function touchMoved() {
-  //return false;
 }
 
 function windowResized() {
