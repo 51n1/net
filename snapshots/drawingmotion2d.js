@@ -11,6 +11,8 @@ function setup() {
   select("#p5title").html(title);
   select("body").style("background-color", color(230));
   select("#p5help").html("<p>Click and move on screen, then if release, drawn lines will be moving.</p>");
+  select("#p5text").style("color", color(115));
+  select("#p5text").html("Draw a line. Then the drawn line will be dancing.");
 
   position = new Array(200);
   for (let i = 0; i < 200; i++) {
